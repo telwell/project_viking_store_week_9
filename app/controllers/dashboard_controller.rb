@@ -1,4 +1,6 @@
 class DashboardController < ApplicationController
+	layout "admin"
+
 	def index
 		@users = User.all.limit(10)
 		@orders = Order.all.limit(10)
