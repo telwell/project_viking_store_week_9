@@ -2,6 +2,7 @@ class CategoriesController < ApplicationController
 	layout "admin"
 
 	def index
+		save_referer_to_session
 		@categories = Category.all
 	end
 
@@ -23,10 +24,12 @@ class CategoriesController < ApplicationController
 	end
 
 	def show
+		save_referer_to_session
 		@category = Category.find(id = params[:id])
 	end
 
 	def edit
+		save_referer_to_session
 		@category = Category.find(id = params[:id])
 	end
 
@@ -40,6 +43,17 @@ class CategoriesController < ApplicationController
 		else
 			flash.now[:error] = "There were problems with your update, please fix"
 			render :edit
+		end
+	end
+
+	def destroy
+		@category = Category.find(id = params[:id])
+		if @category.destroy
+			flash[:success] = "Category successfully deleted!"
+			redirect_to categories_path
+		else
+			flash[:error] = "Couldn't delete this category, please try again"
+			redirect_to session.delete(:return_to)
 		end
 	end
 end

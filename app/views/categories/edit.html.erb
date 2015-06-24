@@ -3,5 +3,5 @@
 <%= render partial: "category_form" %>
 
 <div class="action-links">
-	<%= link_to "Delete", "#" %>
+	<%= link_to "Delete", category_path, :method => :delete, :data => {:confirm=>'Are you sure? This will nullify all associated Products and Orders!'} %>
 </div>

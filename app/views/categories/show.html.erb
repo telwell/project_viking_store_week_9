@@ -20,7 +20,7 @@
 
 <div class="action-links">
 	<%= link_to "Edit", edit_category_path(@category) %> | 
-	<%= link_to "Delete", "#" %>
+	<%= link_to "Delete", category_path, :method => :delete, :data => {:confirm=>'Are you sure? This will nullify all associated Products and Orders!'} %>
 </div>
 
 <h2>Products in Category #<%= @category.id %>:</h2>
