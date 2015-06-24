@@ -12,15 +12,17 @@
 
 <main class="container">
 	
-	<%= render :partial => "shared/main_title" %>
+	<%= render :partial => "admin/main_title" %>
 	
-	<%= render :partial => "shared/flash" %>
+	<%= render :partial => "admin/flash" %>
 
 	<div class="row">
 
-		<%= render :partial => "shared/left_navbar" %>
+		<%= render :partial => "admin/left_navbar" %>
 		
-		<%= yield %>
+		<section class="col-sm-10">
+			<%= yield %>
+		</section>
 
 	</div><!-- END ROW -->
 

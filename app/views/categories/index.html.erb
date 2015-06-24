@@ -1,0 +1,30 @@
+<h2>Categories:</h2>
+<%= link_to "Create New Category", "#", class: "btn btn-primary action-button" %>
+<table class="table table-striped">
+
+	<thead class="all-bold">
+		<tr>
+			<td>ID</td>
+			<td>Name</td>
+			<td>Description</td>
+			<td>Actions</td>
+		</tr>
+	</thead>
+	
+	<% @categories.each do |category| %>
+	
+		<tbody>
+			<tr>
+				<td><%= category.id %></td>
+				<td><%= category.name %></td>
+				<td><%= category.description %></td>
+				<td>
+					<%= link_to "Show", "#" %> | 
+					<%= link_to "Edit", "#" %> | 
+					<%= link_to "Delete", "#" %>
+				</td>
+			</tr>
+		</tbody>
+
+	<% end %>
+</table>

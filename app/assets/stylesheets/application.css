@@ -3,6 +3,7 @@
  *= require_self
  */
 
+/* Navbar CSS */
  .navbar-main {
  	list-style: none;
  	padding: 0px;
@@ -13,3 +14,15 @@
  	padding: 0px;
  	border-top: 1px solid black;
  }
+
+/* Making the table headers bold */
+.table thead td{
+	font-weight: bold;
+}
+
+/* Centering the action button */
+a.action-button {
+ display: block;
+ margin: 0px auto;
+ width: 200px;
+}
