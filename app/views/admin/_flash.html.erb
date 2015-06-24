@@ -1,3 +1,14 @@
-<% if flash[:notice] %>
-  <div class="notice"><%= flash[:notice] %></div>
-<% end %>
+<div class="row">
+	<div class="flash-errors">
+		<% if !flash.empty? %>
+		  
+		  <% flash.each do |key, value| %>
+		  	
+		  	<% error_class = bootstrap_error_class(key) %>
+		  	<p class="<%= error_class %>"><%= value %></p>
+		  	
+		  <% end %>
+
+		<% end %>
+	</div>
+</div>
