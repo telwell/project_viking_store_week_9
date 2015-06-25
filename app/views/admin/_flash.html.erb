@@ -10,16 +10,6 @@
 		  <% end %>
 
 		<% end %>
-
-		<% if defined? display_errors %>
-			<% fails %>
-			<% display_errors.each do |error_key, error_message| %>
 	
-				<p class="bg-danger"><%= "#{error_key} #{error_message}" %></p>
-
-			<% end %>
-
-		<% end %>
-
 	</div>
 </div>

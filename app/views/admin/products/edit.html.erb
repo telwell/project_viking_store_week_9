@@ -1,0 +1,9 @@
+<h2>Edit Product:</h2>
+
+<%= render partial: "product_errors", :locals => { :product => @product } %>
+
+<%= render partial: "product_form", :locals => { :categories => @categories } %>
+
+<div class="action-links">
+	<%= link_to "Delete", admin_product_path(@product), :method => :delete, :data => {:confirm=>'Are you sure?'} %>
+</div>
