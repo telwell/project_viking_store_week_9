@@ -2,10 +2,12 @@ class Admin::ProductsController < ApplicationController
 	layout "admin" 
 
 	def index
+		save_referer_to_session
 		@products = Product.all
 	end
 
 	def show
+		save_referer_to_session
 		@product = Product.find(id = params[:id])
 		@category = category_name(@product)
 		@orders = @product.orders.where("checkout_date IS NOT null").count
@@ -30,6 +32,7 @@ class Admin::ProductsController < ApplicationController
 	end
 
 	def edit
+		save_referer_to_session
 		@product = Product.find(id = params[:id])
 		@categories = Category.all
 	end
@@ -55,7 +58,7 @@ class Admin::ProductsController < ApplicationController
 			flash[:success] = "Product deleted successfully!"
 			redirect_to admin_products_path
 		else
-
+			redirect_to session.delete(:return_to)
 		end
 	end
 
