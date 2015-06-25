@@ -1,0 +1,40 @@
+<%= form_for [:admin, @product] do |f| %>
+	
+	<div class="form-group">
+		<%= f.label :id, "ID" %>
+		<%= f.text_field :id, class: "form-control", :disabled => true %>
+	</div>
+	
+	<div class="form-group">
+		<%= f.label :name, "Product Name" %>
+		<%= f.text_field :name, class: "form-control" %>
+	</div>
+	
+	<div class="form-group">
+		<%= f.label :sku, "SKU" %>
+		<%= f.number_field :sku, class: "form-control" %>
+	</div>
+
+	<div class="form-group">
+		<%= f.label :description, "Description" %>
+		<%= f.text_area :description, class: "form-control" %>
+	</div>
+
+	<!-- QUESTION: How can I add a default selection to this? --> 
+	<div class="form-group">
+		<%= f.label :category_id, "Select Category" %>
+		<%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class: "form-control"}) %>
+	</div>
+
+	<div class="form-group">
+		<%= f.label :price, "Price" %>
+		<div class="input-group">
+      <div class="input-group-addon">$</div>
+      <%= f.number_field :price, class: "form-control" %>
+      <div class="input-group-addon">.00</div>
+    </div>
+	</div>
+
+	<%= f.submit :class => "btn btn-primary" %>
+
+<% end %>
