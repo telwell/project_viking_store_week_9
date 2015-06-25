@@ -1,0 +1,32 @@
+<h2>Show Product Info:</h2>
+<table class="table table-striped">
+	
+	<thead class="all-bold">
+		<tr>
+			<td>ID</td>
+			<td>Name</td>
+			<td>SKU</td>
+			<td>Category</td>
+			<td># Orders</td>
+			<td>In Cart Total</td>
+			<td>Price</td>
+		</tr>
+	</thead>
+
+	<tbody>	
+		<tr>
+			<td><%= @product.id %></td>
+			<td><%= @product.name %></td>
+			<td><%= @product.sku %></td>
+			<td><%= @category %></td>
+			<td><%= @orders %></td>
+			<td><%= @carts %></td>
+			<td><%= number_to_currency(@product.price) %></td>
+		</tr>
+	</tbody>
+</table>
+
+<div class="action-links">
+	<%= link_to "Edit", edit_admin_product_path(@product) %> | 
+	<%= link_to "Delete", admin_product_path, :method => :delete, :data => {:confirm=>'Are you sure? This will nullify all associated Products and Orders!'} %>
+</div>

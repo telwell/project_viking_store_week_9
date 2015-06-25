@@ -26,7 +26,8 @@
 				<td>
 					<!-- QUESTION: I feel as if this logic should be passed off to the 
 					     helpers but when I tried to do so I couldn't come up with a good way.
-					     Is there a standard way to go about doing this? --> 
+					     Is there a standard way to go about doing this? The problem stemmed from
+					     the fact that product.category_id can return nil --> 
 					<% unless product.category_id.nil? %>
 						<%= link_to product.category_id, admin_category_path(product.category_id) %>
 					<% end %>
