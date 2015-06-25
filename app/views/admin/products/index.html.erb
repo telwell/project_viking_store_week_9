@@ -1,0 +1,44 @@
+<!-- Products Index Page -->
+<h2>Products:</h2>
+<%= link_to "Create New Product", new_admin_product_path, class: "btn btn-primary action-button" %>
+<table class="table table-striped">
+
+	<thead class="all-bold">
+		<tr>
+			<td>ID</td>
+			<td>Name</td>
+			<td>SKU</td>
+			<td>Price</td>
+			<td>Category</td>
+			<td>Actions</td>
+		</tr>
+	</thead>
+	
+	<tbody>
+		
+		<% @products.each do |product| %>
+	
+			<tr>
+				<td><%= product.id %></td>
+				<td><%= product.name %></td>
+				<td><%= product.sku %></td>
+				<td><%= number_to_currency(product.price) %></td>
+				<td>
+					<!-- QUESTION: I feel as if this logic should be passed off to the 
+					     helpers but when I tried to do so I couldn't come up with a good way.
+					     Is there a standard way to go about doing this? --> 
+					<% unless product.category_id.nil? %>
+						<%= link_to product.category_id, admin_category_path(product.category_id) %>
+					<% end %>
+				</td>
+				<td>
+					<%= link_to "Show", admin_product_path(product) %> | 
+					<%= link_to "Edit", edit_admin_product_path(product) %> | 
+					<%= link_to "Delete", admin_product_path(product), :method => :delete, :data => {:confirm=>'Are you sure? This will nullify all associated Products and Orders!'} %>
+				</td>
+			</tr>
+
+		<% end %>
+
+	</tbody>
+</table>

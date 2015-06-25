@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   root 'dashboard#index'
-  resources :admin, only: [:index]
-  resources :categories
+  get '/admin' => 'admin#index'
+  namespace :admin do
+  	resources :categories
+  	resources :products
+  end
 end
