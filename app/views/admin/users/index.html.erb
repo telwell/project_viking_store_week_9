@@ -9,6 +9,7 @@
 			<td>First Name</td>
 			<td>Last Name</td>
 			<td>Email</td>
+			<td>Addresses</td>
 			<td>Orders</td>
 			<td>Actions</td>
 		</tr>
@@ -23,6 +24,11 @@
 				<td><%= user.first_name %></td>
 				<td><%= user.last_name %></td>
 				<td><%= user.email %></td>
+				<td>
+					<% if user.addresses %>
+						<%= link_to "Addresses", admin_addresses_path(:search_user_id => user.id) %>
+					<% end %>
+				</td>
 				<td><%= link_to "Orders", "#" %></td>
 				<td>
 					<%= link_to "Show", admin_user_path(user) %> | 

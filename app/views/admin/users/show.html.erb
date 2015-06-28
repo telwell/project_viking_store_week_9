@@ -24,8 +24,8 @@
 			<td><%= @user.last_name %></td>
 			<td><%= @user.email %></td>
 			<td><%= link_to "Orders", "#" %></td>
-			<td><%= link_to user_shipping_address(@user)[0], "#" %></td>
-			<td><%= link_to user_billing_address(@user)[0], "#" %></td>
+			<td><%= link_to user_shipping_address(@user)[0], admin_address_path(user_shipping_address(@user)[1]) %></td>
+			<td><%= link_to user_billing_address(@user)[0], admin_address_path(user_billing_address(@user)[1]) %></td>
 			<td><%= @user_credit_card.card_number if @user_credit_card %></td>
 			<td> 
 				<!-- has_cart? available in UserHelper --> 

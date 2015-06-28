@@ -6,6 +6,9 @@ class User < ActiveRecord::Base
 	has_many :orders
 	has_many :products, through: :order_contents
 	has_many :order_contents, through: :orders
+	
+	# Make sure that we delete the cart when a user is deleted but not
+	# any orders that have been completed.
 	after_destroy :cleanup_cart
 
 	validates :first_name, :last_name, :email, :presence => true, length: {in: 1..64}
