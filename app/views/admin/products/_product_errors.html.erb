@@ -1,7 +1,0 @@
-<% if @product.errors.any? %>
-	<% @product.errors.full_messages.each do |error_message| %>
-		<div class="flash-errors">
-			<p class="bg-danger"><%= error_message %></p>
-		</div>
-	<% end %>
-<% end %>

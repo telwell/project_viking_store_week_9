@@ -1,0 +1,5 @@
+<h2>Create New User</h2>
+
+<%= render partial: "admin/shared/errors", :locals => { :error_object => @user } %>
+
+<%= render partial: "new_user_form", :locals => { :user => @user } %>

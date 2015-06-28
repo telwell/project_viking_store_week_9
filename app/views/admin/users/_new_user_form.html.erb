@@ -1,0 +1,35 @@
+<%= form_for [:admin, @user] do |f| %>
+	
+	<div class="form-group">
+		<%= f.label :id, "ID" %>
+		<%= f.text_field :id, class: "form-control", :disabled => true %>
+	</div>
+	
+	<div class="form-group">
+		<%= f.label :first_name, "First Name" %>
+		<%= f.text_field :first_name, class: "form-control" %>
+	</div>
+
+	<div class="form-group">
+		<%= f.label :last_name, "Last Name" %>
+		<%= f.text_field :last_name, class: "form-control" %>
+	</div>
+
+	<div class="form-group">
+		<%= f.label :email, "Email" %>
+		<%= f.email_field :email, class: "form-control" %>
+	</div>
+
+	<div class="form-group">
+		<%= f.label :billing_id, "Billing Address" %>
+		<%= f.collection_select(:billing_id, Address.all, :id, :street_address, {prompt: true}, {class: "form-control", disabled: disable_address_field? } ) %>
+	</div>
+
+	<div class="form-group">
+		<%= f.label :shipping_id, "Shipping Address" %>
+		<%= f.collection_select(:shipping_id, Address.all, :id, :street_address, {prompt: true}, {class: "form-control", disabled: disable_address_field? } ) %>
+	</div>
+
+	<%= f.submit :class => "btn btn-primary" %>
+
+<% end %>

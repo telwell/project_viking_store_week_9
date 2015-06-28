@@ -1,11 +1,14 @@
 class User < ActiveRecord::Base
-	has_many :addresses
+	has_many :addresses, dependent: :destroy
 	has_many :cities
 	has_many :states
-	has_many :credit_cards
+	has_many :credit_cards, dependent: :destroy
 	has_many :orders
 	has_many :products, through: :order_contents
 	has_many :order_contents, through: :orders
+	after_destroy :cleanup_cart
+
+	validates :first_name, :last_name, :email, :presence => true, length: {in: 1..64}
 
 	def self.total
 
@@ -46,5 +49,10 @@ class User < ActiveRecord::Base
 		order("client_total DESC").
 		limit(3)
 
+	end
+
+private
+	def cleanup_cart
+		Order.where("user_id = #{self.id}").destroy_all("checkout_date IS null")
 	end
 end

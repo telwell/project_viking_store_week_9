@@ -24,4 +24,8 @@ module Admin::UsersHelper
 		end
 	end
 
+	def disable_address_field?
+		action_name == "new" ? true : false
+	end
+
 end

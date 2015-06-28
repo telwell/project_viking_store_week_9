@@ -38,7 +38,6 @@ class Admin::ProductsController < AdminController
 	def update
 		@product = Product.find(params[:id])
 		@categories = Category.all
-		# This below is to make sure that our category is actually in the list of categories
 		if @product.update(whitelisted_product_params)
 			flash[:success] = "Product created successfully!"
 			redirect_to admin_products_path
