@@ -1,0 +1,76 @@
+<!-- Users Index Page -->
+<h2>User <%= @user.first_name %> <%= @user.last_name %>:</h2>
+<table class="table table-striped">
+
+	<thead class="all-bold">
+		<tr>
+			<td>ID</td>
+			<td>First Name</td>
+			<td>Last Name</td>
+			<td>Email</td>
+			<td>Orders</td>
+			<td>Shipping Add.</td>
+			<td>Billing Add.</td>
+			<td>Credit Card #</td>
+			<td>Actions</td>
+		</tr>
+	</thead>
+	
+	<tbody>
+	
+		<tr>
+			<td><%= @user.id %></td>
+			<td><%= @user.first_name %></td>
+			<td><%= @user.last_name %></td>
+			<td><%= @user.email %></td>
+			<td><%= link_to "Orders", "#" %></td>
+			<td><%= link_to user_shipping_address(@user)[0], "#" %></td>
+			<td><%= link_to user_billing_address(@user)[0], "#" %></td>
+			<td><%= @user_credit_card.card_number if @user_credit_card %></td>
+			<td> 
+				<!-- has_cart? available in UserHelper --> 
+				<% if has_cart?(@user) %>
+					<%= link_to "Cart", edit_admin_user_path(@user) %> | 
+				<% end %>			
+				<%= link_to "Edit", edit_admin_user_path(@user) %> | 
+				<%= link_to "Delete", admin_user_path(@user), :method => :delete, :data => {:confirm=>'Are you sure?'} %>
+				<% if @user_credit_card %>
+					| <%= link_to "Delete CC Info TODO", admin_credit_card_path(@user_credit_card), :method => :delete, :data => {:confirm=>'Are you sure?'} %>
+				<% end %>
+			</td>
+		</tr>
+
+	</tbody>
+</table>
+
+<h2>Order History:</h2>
+<table class="table table-striped">
+
+	<thead class="all-bold">
+		<tr>
+			<td>ID</td>
+			<td>Checkout Date</td>
+		</tr>
+	</thead>
+	
+	<tbody>
+	
+		<% unless @orders.nil? %>
+			<% @orders.each do |order| %>
+
+				<tr>
+					<td><%= order.id %></td>
+					<td><%= order.checkout_date || "NULL" %></td>
+					<td> 	
+						<%= link_to "Show", edit_admin_user_path(@user) %> |	
+						<%= link_to "Edit", edit_admin_user_path(@user) %> | 
+						<%= link_to "Delete", admin_user_path(@user), :method => :delete, :data => {:confirm=>'Are you sure?'} %>
+					</td>
+				</tr>
+			<% end %>
+		<% end %>
+	</tbody>
+</table>
+
+<%= link_to "Add Address", "#", class: "btn btn-primary action-button" %>
+<%= link_to "Create Order", "#", class: "btn btn-primary action-button" %>

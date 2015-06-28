@@ -1,5 +1,4 @@
 class Admin::CategoriesController < AdminController
-	layout "admin"
 
 	def index
 		save_referer_to_session
@@ -25,16 +24,16 @@ class Admin::CategoriesController < AdminController
 
 	def show
 		save_referer_to_session
-		@category = Category.find(id = params[:id])
+		@category = Category.find(params[:id])
 	end
 
 	def edit
 		save_referer_to_session
-		@category = Category.find(id = params[:id])
+		@category = Category.find(params[:id])
 	end
 
 	def update
-		@category = Category.find(id = params[:id])
+		@category = Category.find(params[:id])
 		@category.name = params[:category][:name]
 		@category.description = params[:category][:description]
 		if @category.save
@@ -47,7 +46,7 @@ class Admin::CategoriesController < AdminController
 	end
 
 	def destroy
-		@category = Category.find(id = params[:id])
+		@category = Category.find(params[:id])
 		if @category.destroy
 			flash[:success] = "Category successfully deleted!"
 			redirect_to admin_categories_path
@@ -56,4 +55,7 @@ class Admin::CategoriesController < AdminController
 			redirect_to session.delete(:return_to)
 		end
 	end
+
+	#TODO: Add whitelisted_categories_params to be used in update method. Don't set everything
+	# manually there.
 end

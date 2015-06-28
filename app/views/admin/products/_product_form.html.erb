@@ -23,7 +23,7 @@
 	<!-- QUESTION: How can I add a default selection to this? --> 
 	<div class="form-group">
 		<%= f.label :category_id, "Select Category" %>
-		<%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class: "form-control"}) %>
+		<%= f.collection_select(:category_id, Category.all, :id, :name, {prompt: true}, {class: "form-control"} ) %>
 	</div>
 
 	<div class="form-group">
