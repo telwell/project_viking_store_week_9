@@ -1,15 +1,13 @@
 <!-- Address Index Page -->
-<h2>Addresses:</h2>
+<h2><%= generate_address_index_title(params[:search_user_id] ||= nil, @valid_search_user) %></h2>
 <p><b>NOTE:</b> Addresses can only be created from a user profile page!</p> 
-<%= form_tag(admin_addresses_path, method: "get", class: "form-inline") do %>
-	<div class="form-group">
-		<%= label_tag :search_user_id, "Search by User ID" %>
-		<%= number_field_tag :search_user_id, class: "form-control" %>
-	</div>
 
-	<%= submit_tag "Search", class: "btn btn-primary" %>
-
+<% if @valid_search_user %>
+	<%= link_to "Create Address for User", new_admin_address_path(:user_id => params[:search_user_id]), class: "btn btn-primary action-button" %>
+<% else %>
+	<%= render partial: "user_filter_form" %>
 <% end %>
+
 <table class="table table-striped">
 
 	<thead class="all-bold">

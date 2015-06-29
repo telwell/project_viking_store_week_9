@@ -1,0 +1,28 @@
+<h2><%= @address.user.first_name %> <%= @address.user.last_name %>'s Address:</h2>
+<table class="table table-striped">
+	
+	<thead>
+		<tr>
+			<td>ID</td>
+			<td>Owner Name</td>
+			<td>Street</td>
+			<td>City</td>
+			<td>State</td>
+		</tr>
+	</thead>
+
+	<tbody>	
+		<tr>
+			<td><%= @address.id %></td>
+			<td><%= link_to "#{@address.user.first_name} #{@address.user.last_name}", admin_user_path(@address.user.id) %></td>
+			<td><%= @address.street_address %></td>
+			<td><%= @address.city.name %></td>
+			<td><%= @address.state.name %></td>
+		</tr>
+	</tbody>
+</table>
+
+<div class="action-links">
+	<%= link_to "Edit", edit_admin_address_path(@address) %> | 
+	<%= link_to "Delete", admin_address_path, :method => :delete, :data => {:confirm=>'Are you sure?'} %>
+</div>

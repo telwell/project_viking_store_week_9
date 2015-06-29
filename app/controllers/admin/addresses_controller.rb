@@ -1,7 +1,17 @@
 class Admin::AddressesController < AdminController
 
 	def index
-		@addresses =(check_search_user ? User.find(params[:search_user_id]).addresses : Address.all)
+		if check_search_user
+			@valid_search_user = true
+			@addresses = User.find(params[:search_user_id]).addresses
+		else
+			@valid_search_user = false
+			@addresses = Address.all
+		end
+	end
+
+	def show
+		@address = Address.find(params[:id])
 	end
 
 
