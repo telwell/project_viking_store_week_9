@@ -1,3 +1,5 @@
 <h2>Create New Category:</h2>
 
+<%= render partial: "admin/shared/errors", :locals => { :error_object => @product } %>
+
 <%= render partial: "category_form" %>

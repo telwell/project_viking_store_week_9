@@ -1,0 +1,42 @@
+<%= form_for [:admin, @address] do |f| %>
+	
+	<% current_user = @address.user_id if current_user.nil? %>
+
+	<div class="form-group col-sm-12">
+		<%= f.label :id, "Address ID" %>
+		<%= f.text_field :id, class: "form-control", :disabled => true %>
+	</div>
+
+	<div class="form-group col-sm-12">
+		<%= f.hidden_field :user_id, value: current_user, class: "form-control" %>
+	</div>
+
+	<div class="form-group col-sm-12">
+		<% current_user = User.find(current_user) %>
+		<h5>User Name:</h3>
+		<%= link_to "#{current_user.first_name} #{current_user.last_name}", admin_user_path(current_user) %>
+	</div>
+	
+	<div class="form-group col-sm-12">
+		<%= f.label :street_address, "Street Address" %>
+		<%= f.text_field :street_address, class: "form-control" %>
+	</div>
+	
+	<div class="form-group col-sm-4">
+		<%= f.label :city_id, "Select City" %>
+		<%= f.collection_select(:city_id, City.all, :id, :name, {prompt: true}, {class: "form-control"} ) %>
+	</div>
+
+	<div class="form-group col-sm-4">
+		<%= f.label :state_id, "Select State" %>
+		<%= f.collection_select(:state_id, State.all, :id, :name, {prompt: true}, {class: "form-control"} ) %>
+	</div>
+
+	<div class="form-group col-sm-4">
+		<%= f.label :zip_code, "Zip" %>
+		<%= f.number_field :zip_code, class: "form-control" %>
+	</div>
+
+	<%= f.submit :class => "btn btn-primary col-sm-2" %>
+
+<% end %>

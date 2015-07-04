@@ -1,0 +1,5 @@
+<h2>Create New Address for <%= "#{User.find(params[:user_id]).first_name} #{User.find(params[:user_id]).last_name}" %>:</h2>
+
+<%= render partial: "admin/shared/errors", :locals => { :error_object => @address } %>
+
+<%= render partial: "new_address_form", :locals => { :current_user => params[:user_id] || params[:address][:user_id] } %>

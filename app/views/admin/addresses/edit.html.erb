@@ -1,0 +1,5 @@
+<h2>Edit User <%= "#{@address.user.first_name} #{@address.user.last_name}" %>:</h2>
+
+<%= render partial: "admin/shared/errors", :locals => { :error_object => @address } %>
+
+<%= render partial: "new_address_form" %>
