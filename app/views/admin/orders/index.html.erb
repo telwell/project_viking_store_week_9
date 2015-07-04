@@ -1,0 +1,52 @@
+<!-- Orders Index Page -->
+<h2>All Orders <!-- Change title when user searched --></h2>
+<p><b>NOTE:</b> Orders can only be created from a user profile page!</p> 
+
+<% if @valid_search_user %>
+	<%= link_to "Create Address for User", new_admin_address_path(:user_id => params[:search_user_id]), class: "btn btn-primary action-button" %>
+<% else %>
+	<%= render partial: "admin/shared/user_filter_form", :locals => { :submit_path => admin_orders_path } %>
+<% end %>
+
+<table class="table table-striped">
+
+	<thead class="all-bold">
+		<tr>
+			<td>ID</td>
+			<td>User ID</td>
+			<td>Address</td>
+			<td>City</td>
+			<td>State</td>
+			<td>Quantity</td>
+			<td>Total Value</td>
+			<td>Status</td>
+			<td>Date Placed</td>
+			<td>Actions</td>
+		</tr>
+	</thead>
+	
+	<tbody>
+		
+		<% @orders.each do |order| %>
+	
+			<tr>
+				<td><%= order.id %></td>
+				<td><%= link_to order.user.id, admin_user_path(order.user) %></td>
+				<td><%= Address.find(order.shipping_id).street_address %></td>
+				<td><%= Address.find(order.shipping_id).city.name %></td>
+				<td><%= Address.find(order.shipping_id).state.name %></td>
+				<td><%= order_item_quantity(order.id) %></td>
+				<td><%= number_to_currency(total_order_value(order.id)) %></td>
+				<td><%= is_order_placed?(order) %></td>
+				<td><%= order.checkout_date || "N/A" %></td>
+				<td>
+					<%= link_to "Show", admin_order_path(order) %> | 
+					<%= link_to "Edit", edit_admin_order_path(order) %> | 
+					<%= link_to "Delete", admin_order_path(order), :method => :delete, :data => {:confirm=>'Are you sure?'} %>
+				</td>
+			</tr>
+
+		<% end %>
+
+	</tbody>
+</table>
