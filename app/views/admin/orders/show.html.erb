@@ -1,0 +1,148 @@
+<h2>Order #<%= @order.id %> <%= is_order_placed?(@order)[0] == "Unplaced" ? "Shopping Cart" : "Info" %>:</h2>
+<table class="table table-striped">
+
+	<tbody>
+		<!-- User ID -->
+		<tr>
+			<td>Customer ID:</td>
+			<td><%= @order.user_id %></td>
+		</tr>
+
+		<!-- Link to Customer -->
+		<tr>
+			<td>Customer:</td>
+			<td><%= link_to "#{@order.user.first_name} #{@order.user.last_name}", admin_user_path(@order.user_id) %></td>
+		</tr>
+
+		<!-- Date Placed -->
+		<tr>
+			<td>Date Placed:</td>
+			<td><%= @order.checkout_date || "N/A" %></td>
+		</tr>
+	</tbody>
+</table>
+<%= link_to "Edit Customer Profile", edit_admin_user_path(@order.user_id) %>
+
+
+<!-- ORDER STATUS -->
+
+<h2>Order Status:</h2>
+<% order_status = is_order_placed?(@order) %>
+<h3 class="<%= order_status[1] %>"><%= order_status[0] %></h3>
+
+<!-- /ORDER STATUS -->
+
+<!-- SHIPPING ADDRESS -->
+
+<h2>Shipping Address:</h2>
+<table class="table table-striped">
+
+	<tbody>
+		<!-- Street -->
+		<tr>
+			<td>Street:</td>
+			<td><%= @shipping_address.street_address %></td>
+		</tr>
+
+		<!-- City -->
+		<tr>
+			<td>City:</td>
+			<td><%= @shipping_address.city.name %></td>
+		</tr>
+
+		<!-- State -->
+		<tr>
+			<td>State:</td>
+			<td><%= @shipping_address.state.name %></td>
+		</tr>
+	</tbody>
+</table>
+
+<!-- /SHIPPING ADDRESS -->
+
+<!-- BILLING ADDRESS -->
+
+<h2>Billing Address:</h2>
+<table class="table table-striped">
+
+	<tbody>
+		<!-- Street -->
+		<tr>
+			<td>Street:</td>
+			<td><%= @billing_address.street_address %></td>
+		</tr>
+
+		<!-- City -->
+		<tr>
+			<td>City:</td>
+			<td><%= @billing_address.city.name %></td>
+		</tr>
+
+		<!-- State -->
+		<tr>
+			<td>State:</td>
+			<td><%= @billing_address.state.name %></td>
+		</tr>
+	</tbody>
+</table>
+
+<!-- /BILLING ADDRESS -->
+
+<!-- BILLING CARD -->
+
+<h2>Billing Card:</h2>
+<table class="table table-striped">
+
+	<tbody>
+		<!-- Last Four -->
+		<tr>
+			<td>Last Four:</td>
+			<td><%= @credit_card.nil? ? "N/A" : @credit_card.card_number %></td>
+		</tr>
+	</tbody>
+</table>
+
+<!-- /BILLING CARD -->
+
+<!-- ACTION LINKS -->
+
+<div class="action-links">
+	<%= link_to "Edit", edit_admin_order_path(@order) %> | 
+	<%= link_to "Delete", admin_order_path, :method => :delete, :data => {:confirm=>'Are you sure?'} %>
+</div>
+
+<!-- /ACTION LINKS -->
+
+<!-- ORDER CONTENTS -->
+
+<h2>Order Contents:</h2>
+<table class="table table-striped">
+
+	<tbody>
+		<thead class="all-bold">
+			<tr>
+				<td>Product ID</td>
+				<td>Product</td>
+				<td>Quantity</td>
+				<td>Price</td>
+				<td>Total Price</td>
+			</tr>
+		</thead>
+
+		<tbody>
+			<% @order_items.each do |order_item| %>
+				<tr>
+					<td><%= order_item.id %></td>
+					<td><%= link_to order_item.product.name, admin_product_path(order_item.product.id) %></td>
+					<td><%= order_item.quantity %></td>
+					<td><%= number_to_currency(order_item.product.price) %></td>
+					<td><%= number_to_currency((order_item.quantity) * (order_item.product.price)) %></td>
+				</tr>
+			<% end %>
+
+		</tbody>
+		
+	</tbody>
+</table>
+
+<!-- /ORDER CONTENTS -->

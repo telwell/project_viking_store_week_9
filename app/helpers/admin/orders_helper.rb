@@ -16,6 +16,13 @@ module Admin::OrdersHelper
 	end
 
 	def is_order_placed?(order)
-		order.checkout_date.present? ? "Placed" : "Unplaced"
+		order_status = []
+
+		order_status[0]=(order.checkout_date.present? ? "Placed" : "Unplaced")
+
+		# This will be used to format our CSS
+		order_status[1]=(order_status[0] == "Placed" ? "status-placed" : "status-unplaced")
+
+		order_status
 	end
 end

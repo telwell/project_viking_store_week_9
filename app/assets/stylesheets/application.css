@@ -37,3 +37,14 @@ a.action-button {
  margin: 0px auto;
  width: 200px;
 }
+
+/* Order Status Formatting */ 
+.status-unplaced {
+	color: red;
+	font-weight: bold;
+}
+
+.status-placed {
+	color: green;
+	font-weight: bold;
+}
