@@ -10,4 +10,19 @@ class ApplicationController < ActionController::Base
 	def save_user_to_session(user_id)
 		session[:user_id] ||= user_id
 	end
+
+	# Check the search_user_id param to see if it's valid
+	def check_search_user
+		if params[:search_user_id]
+			if User.pluck(:id).include?(params[:search_user_id].to_i)
+				true
+			else
+				flash[:notice] = "User submitted is not valid"
+				false
+			end
+		else
+			false
+		end
+	end
+
 end
