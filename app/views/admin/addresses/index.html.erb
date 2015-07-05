@@ -5,7 +5,7 @@
 <% if @valid_search_user %>
 	<%= link_to "Create Address for User", new_admin_address_path(:user_id => params[:search_user_id]), class: "btn btn-primary action-button" %>
 <% else %>
-	<%= render partial: "admin/shared/user_filter_form" %>
+	<%= render partial: "admin/shared/user_filter_form", :locals => { :submit_path => admin_addresses_path } %>
 <% end %>
 
 <table class="table table-striped">
