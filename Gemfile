@@ -1,10 +1,7 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails'
-# Sqlite3 for database
-gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -29,6 +26,8 @@ gem 'spring',  '~> 1.3.3',      group: :development
 gem 'pry'
 
 gem 'faker'
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -50,4 +49,12 @@ end
 
 group :development do
   gem "better_errors"
+  # Sqlite3 for database
+	gem 'sqlite3'
+end
+
+group :production do
+	#Postgresql for production DB on Heroku
+	gem 'pg'
+	gem 'rails_12factor'
 end
