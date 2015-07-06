@@ -10,7 +10,7 @@ module Admin::OrdersHelper
 
 	def order_item_quantity(order_id)
 		Order.select("SUM(quantity) AS total_quantity").
-		where("order_id = #{order_id}").
+		where("order_id = ?", order_id).
 		joins("JOIN products ON order_contents.product_id = products.id JOIN order_contents ON orders.id = order_contents.order_id").
 		first.total_quantity
 	end

@@ -37,7 +37,7 @@
 				<td><%= Address.find(order.shipping_id).state.name %></td>
 				<td><%= order_item_quantity(order.id) %></td>
 				<td><%= number_to_currency(total_order_value(order.id)) %></td>
-				<td><%= is_order_placed?(order) %></td>
+				<td><span class="<%= is_order_placed?(order)[1] %>"><%= is_order_placed?(order)[0] %></td>
 				<td><%= order.checkout_date || "N/A" %></td>
 				<td>
 					<%= link_to "Show", admin_order_path(order) %> | 
