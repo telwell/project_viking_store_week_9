@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
 	has_many :addresses, dependent: :destroy
 	has_many :cities
 	has_many :states
-	has_many :credit_cards, dependent: :destroy
+	has_one :credit_card, dependent: :destroy
 	has_many :orders
 	has_many :products, through: :order_contents
 	has_many :order_contents, through: :orders

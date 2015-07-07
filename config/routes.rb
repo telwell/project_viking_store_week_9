@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   	resources :addresses
     resources :orders
   	resources :credit_cards, only: [:destroy]
+    resources :order_contents, only: [:update, :destroy, :create]
   end
 end

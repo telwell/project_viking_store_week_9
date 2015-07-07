@@ -1,6 +1,7 @@
 class Order < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :product
+	has_one :credit_card, through: :user
 	has_many :categories, through: :products
 	has_many :products, through: :order_contents
 	has_many :order_contents, class_name: "OrderContents"
@@ -144,4 +145,5 @@ class Order < ActiveRecord::Base
 		where("orders.checkout_date BETWEEN ? AND ?", start_date.beginning_of_day, end_date.end_of_day).
 		limit(1).first
 	end
+
 end

@@ -37,15 +37,15 @@
 				<%= f.collection_select(:billing_id, Address.all, :id, :street_address, {selected: @user.billing_id}, {class: "form-control"} ) %>
 			</div>
 
-			<%= hidden_field_tag "order[user_id]", params[:user_id] %>
+			<div class="form-group col-sm-12">
+				<%= label_tag :credit_card, "Credit Card" %>
+				<%= select_tag :credit_card, options_from_collection_for_select(CreditCard.all, :id, :card_number, selected: @user.credit_card.id), class: "form-control" %>
+			</div>
 
-			<!-- TODO: TRIED TO ADD BILLING CARD BUT THIS DOESN'T SEEM POSSIBLE HERE
-						... CREDIT CARD IS ASSOCIATED W/ USER NOT ORDER? --> 
+			<%= hidden_field_tag "order[user_id]", @user.id %>
 
 			<%= f.submit :class => "btn btn-primary col-sm-2" %>
+
+		<% end %>
 	</div><!-- col-sm-12 -->
 </div><!-- row -->
-
-<% end %>
-
-<p class="col-sm-12 text-center">You can add products on the next screen,<br/> once order has been created.</p>

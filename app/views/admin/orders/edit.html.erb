@@ -1,5 +1,75 @@
-<h2>Edit Order for <%= "#{@user.first_name} #{@user.last_name}" %>:</h2>
+<h2>Edit Order for Order #<%= @order.id %>:</h2>
 
 <%= render partial: "admin/shared/errors", :locals => { :error_object => @order } %>
 
 <%= render partial: "order_form" %>
+
+<h2>Order Status:</h2>
+
+<%= form_tag([:admin, @order], method: :patch) do %>
+	<%= label_tag 'order_status_placed', 'Placed:', class: 'status-placed' %>
+	<%= radio_button_tag 'order[order_status]', 'placed', is_order_placed?(@order)[0] == "Placed" ? true : false %>
+	<%= label_tag 'order_status_unplaced', 'Unplaced:', class: 'status-unplaced' %>
+	<%= radio_button_tag 'order[order_status]', 'unplaced', is_order_placed?(@order)[0] == "Unplaced" ? true: false  %>
+	<%= hidden_field_tag 'order[user_id]', @order.user.id %>
+	<%= submit_tag "Update Order Information", class: 'btn btn-primary' %>
+<% end %>
+
+<h2>Edit Order Contents:</h2>
+
+<table class="table table-striped">
+	<thead class="all-bold">
+		<tr>
+			<td>ID</td>
+			<td>Quantity</td>
+			<td>Price</td>
+			<td>Total Price</td>
+			<td>Remove</td>
+		</tr>
+	</thead>
+
+	<tbody>
+		
+		<% @order_contents.each do |order_content| %>
+			<tr>
+				<%= form_tag([:admin, order_content], method: :patch) do %>
+					<td><%= order_content.id %></td>
+				
+				
+					<td><%= text_field_tag("quantity", order_content.quantity) %></td>
+							<%= hidden_field_tag("order_content_id", order_content.id) %>
+
+					<td><%= number_to_currency(order_content.product.price) %></td>
+					<td><%= number_to_currency(order_content.product.price * order_content.quantity) %></td>
+					<td><%= link_to "Remove", admin_order_content_path(order_content.id), method: :delete %></td>
+					<td><%= submit_tag "Change Quantity", class: "btn btn-info" %></td>
+				<% end %>
+			</tr>
+		<% end %>
+
+	</tbody>
+</table>
+
+<%= link_to "Delete Order", admin_order_path(@order.id), method: :delete, data: { confirm: "Are you sure?" } %>
+
+<h2>Add Products to Order:</h2>
+
+<table class="table table-striped">
+	<thead class="all-bold">
+		<tr>
+			<td>Product ID</td>
+			<td>Quantity</td>
+			<td>Submit</td>
+		</tr>
+	</thead>
+		
+	<tbody>
+		<%= form_tag "/admin/order_contents#create" do %>
+					<%= hidden_field_tag("order_id", @order.id) %>
+			<td><%= text_field_tag("product_id") %></td>
+			<td><%= text_field_tag("quantity") %></td>
+			<td><%= submit_tag "Add Product", class: "btn btn-info" %></td>
+		<% end %>
+	</tbody>
+
+</table>
