@@ -1,0 +1,5 @@
+<h2>Create New Order for <%= "#{@user.first_name} #{@user.last_name}" %>:</h2>
+
+<%= render partial: "admin/shared/errors", :locals => { :error_object => @order } %>
+
+<%= render partial: "order_form" %>

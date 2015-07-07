@@ -18,4 +18,30 @@ class Admin::OrdersController < AdminController
 		@order_items = OrderContents.where("order_id = #{@order.id}")
 	end
 
+	def new
+		@order = Order.new
+		@user = User.find(params[:user_id])
+		@credit_card = CreditCard.where("user_id = ?", params[:user_id])
+	end
+
+	def create
+		@order = Order.new(whitelisted_order_params)
+		if @order.save 
+			flash[:success] = "Order added successfully!"
+			redirect_to edit_admin_order_path(@order.id)
+		else
+			render :new
+		end
+	end
+
+	def edit
+		@order = Order.find(params[:id])
+		@user = @order.user
+	end
+
+private 
+
+	def whitelisted_order_params
+		params.require(:order).permit(:shipping_id, :billing_id, :user_id)
+	end
 end

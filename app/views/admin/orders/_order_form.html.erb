@@ -1,0 +1,51 @@
+<table class="table table-striped">
+
+	<tbody>
+		<!-- User ID -->
+		<tr>
+			<td>Customer ID:</td>
+			<td><%= @user.id %></td>
+		</tr>
+
+		<!-- Link to Customer -->
+		<tr>
+			<td>Customer:</td>
+			<td><%= link_to "#{@user.first_name} #{@user.last_name}", admin_user_path(@user.id) %></td>
+		</tr>
+
+		<!-- Date Placed -->
+		<tr>
+			<td>Date Placed:</td>
+			<td><%= @order.checkout_date || "N/A" %></td>
+		</tr>
+	</tbody>
+</table>
+
+<div class="row">
+	<div class="col-sm-12">
+		<%= link_to "Edit Customer Profile", edit_admin_user_path(@user.id) %>
+
+		<%= form_for [:admin, @order] do |f| %>
+			
+			<div class="form-group col-sm-12">
+				<%= f.label :shipping_id, "Shipping Address" %>
+				<%= f.collection_select(:shipping_id, Address.all, :id, :street_address, {selected: @user.shipping_id}, {class: "form-control"} ) %>
+			</div>
+
+			<div class="form-group col-sm-12">
+				<%= f.label :billing_id, "Shipping Address" %>
+				<%= f.collection_select(:billing_id, Address.all, :id, :street_address, {selected: @user.billing_id}, {class: "form-control"} ) %>
+			</div>
+
+			<%= hidden_field_tag "order[user_id]", params[:user_id] %>
+
+			<!-- TODO: TRIED TO ADD BILLING CARD BUT THIS DOESN'T SEEM POSSIBLE HERE
+						... CREDIT CARD IS ASSOCIATED W/ USER NOT ORDER? --> 
+
+			<%= f.submit :class => "btn btn-primary col-sm-2" %>
+	</div><!-- col-sm-12 -->
+</div><!-- row -->
+
+<% end %>
+
+<p class="col-sm-12 text-center">You can add products on the next screen,<br/> once order has been created.</p>

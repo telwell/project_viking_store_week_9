@@ -5,6 +5,8 @@ class Order < ActiveRecord::Base
 	has_many :products, through: :order_contents
 	has_many :order_contents, class_name: "OrderContents"
 
+	validates :shipping_id, :billing_id, :presence => true
+
 	# Return the total number of orders since a particular time.
 	# See the view for how to utilize the yield here.
 	def self.total_submitted_orders

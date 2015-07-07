@@ -63,8 +63,8 @@
 					<td><%= order.checkout_date || "NULL" %></td>
 					<td> 	
 						<%= link_to "Show", admin_order_path(order.id) %> |	
-						<%= link_to "Edit", edit_admin_user_path(@user) %> | 
-						<%= link_to "Delete", admin_user_path(@user), :method => :delete, :data => {:confirm=>'Are you sure?'} %>
+						<%= link_to "Edit", edit_admin_order_path(order) %> | 
+						<%= link_to "Delete", admin_order_path(order), :method => :delete, :data => {:confirm=>'Are you sure?'} %>
 					</td>
 				</tr>
 			<% end %>
