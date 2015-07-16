@@ -1,3 +1,44 @@
-// Place all the styles related to the Dashboard controller here.
+// Place all the styles related to the dashboard controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*--------------------
+	NAVBAR CSS
+--------------------*/
+nav {
+	.nav-viking-logo{
+		height: 60px;
+	}
+
+	.nav-right{
+		height: 60px;
+
+		.link-wrapper{
+			padding: 20px 150px 0 0;
+			float: right;
+		}
+	}
+}
+
+/*--------------------
+	MAIN CSS
+--------------------*/
+
+
+
+/*--------------------
+	FOOTER CSS
+--------------------*/
+footer {
+	background-color: #333;
+	color: #fff;
+
+	ul{
+		list-style: none;
+		padding: 20px 0 0 0;
+	}
+
+	.footer-right {
+		padding-top: 10px;
+	}
+}

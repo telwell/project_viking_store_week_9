@@ -1,0 +1,44 @@
+<!-- Navbar -->
+<nav class="row">
+	<div class="col-sm-12">
+		
+		<div class="col-sm-6 nav-viking-logo">
+			<h2>Viking Store</h2>
+		</div>
+		
+		<div class="col-sm-6 nav-right">
+				<div class="link-wrapper">
+					<%= link_to "Your Cart", "#" %><br>
+					<%= link_to "Sign In", "#" %>
+				</div>
+		</div>
+
+	</div>
+</nav>
+<!-- /Navbar -->
+
+<!-- Main Product Display -->
+<main class="row">
+	<% @products.each do |product| %>
+		<article class="col-sm-4 text-center">
+			<p><%= link_to product.name, "#" %></p>
+		</article>
+	<% end %>
+</main>
+<!-- /Main Product Display -->
+
+<!-- Footer -->
+<footer class="row">
+	<div class="col-sm-4 col-sm-offset-4 text-center">
+		<h4>CONTACT</h4>
+		<ul>
+			<li>1-800-955-1022</li>
+			<li>contact@vikingstore.com</li>
+		</ul>
+	</div>
+
+	<div class="col-sm-4 footer-right">
+		<%= link_to "Admin Login", admin_path %>
+	</div>
+</footer>
+<!-- /Footer -->
