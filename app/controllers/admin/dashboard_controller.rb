@@ -1,4 +1,4 @@
-class DashboardController < ApplicationController
+class Admin::DashboardController < AdminController
 
 	def index
 		@users = User.all.limit(10)

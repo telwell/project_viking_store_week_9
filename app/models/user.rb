@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
 	has_many :orders
 	has_many :products, through: :order_contents
 	has_many :order_contents, through: :orders
+	belongs_to :shipping_address, foreign_key: :shipping_id, class_name: "Address", dependent: :destroy  
+	belongs_to :billing_address, foreign_key: :billing_id, class_name: "Address", dependent: :destroy  
 	
 	# Make sure that we delete the cart when a user is deleted but not
 	# any orders that have been completed.

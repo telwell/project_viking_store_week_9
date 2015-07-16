@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  root 'dashboard#index'
-  # QUESTION: Is this the best way to be able to set an actual /ADMIN page?
-  get '/admin' => 'admin#index'
+  # NOTHING HERE RIGHT NOW root ''
+  
+  get '/admin' => 'admin/dashboard#index'
+  
   namespace :admin do
+    resources :dashboard, only: [:index]
   	resources :categories
   	resources :products
   	resources :users

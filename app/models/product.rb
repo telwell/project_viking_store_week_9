@@ -6,7 +6,10 @@ class Product < ActiveRecord::Base
 
 	validates :name, :sku, :description, :price, :category_id, :presence => true
 	validates :price, :numericality => { :less_than_or_equal_to => 10_000 }
-	validates :category_id, inclusion: { in: Category.pluck(:id) }
+	validates :category, :presence => true
+	
+	# TODO: Check out inclusion validator and see why this breaks rake db:seed
+	#####validates :category_id, inclusion: { in: Category.pluck(:id) }
 	# TODO: Look up filters in rails and how to use them
 
 	def self.total_product

@@ -147,7 +147,7 @@ def generate_contents(order_id)
     # [:order_id, :product_id]
     if OrderContents.where(:product_id => c.product_id,
                           :order_id => c.order_id).empty?
-      c.save
+        c.save
     end
   end
 end
