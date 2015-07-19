@@ -1,4 +1,4 @@
-<!-- Navbar -->
+<!--- Navbar -->
 <nav class="row">
 	<div class="col-sm-12">
 		
@@ -24,6 +24,21 @@
 	</div>
 </div>
 <!-- /Hero -->
+
+<!-- Filter by Category -->
+<div class="row category-filter">
+	<div class="col-sm-3 pull-right">
+		<form class="form-inline" method="GET">
+			<div class="form-group">
+				<!--List of all categories-->
+				<%= collection_select(:category, :name, Category.all, :id, :name, { prompt: true }, { name: "filter_category", class: "form-control" }) %>
+				<!-- Submit Button -->
+				<input type="submit" value="Filter" class="form-control btn btn-primary" %>
+			</div>
+		</form>
+	</div>
+</div>
+<!-- /Filter by Category -->
 
 <!-- Main Product Display -->
 <main class="row">
