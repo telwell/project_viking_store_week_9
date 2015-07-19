@@ -27,6 +27,9 @@ gem 'pry'
 
 gem 'faker'
 
+# Add some pagination as well
+gem 'will_paginate', '~> 3.0.6'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

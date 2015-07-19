@@ -1,7 +1,7 @@
 class DashboardController < ApplicationController
 
 	def index
-		@products = Product.all.limit(9)
+		@products = Product.all.paginate(:page => params[:page], :per_page => 9)
 	end
 
 end
