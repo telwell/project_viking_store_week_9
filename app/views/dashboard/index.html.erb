@@ -17,11 +17,36 @@
 </nav>
 <!-- /Navbar -->
 
+<!-- Hero -->
+<div class="row">
+	<div class="main-hero text-center">
+		<h2>The Best Viking Gear on the Whole Web!</h2>
+	</div>
+</div>
+<!-- /Hero -->
+
 <!-- Main Product Display -->
 <main class="row">
 	<% @products.each do |product| %>
-		<article class="col-sm-4 text-center">
-			<p><%= link_to product.name, "#" %></p>
+		<article class="col-sm-4 text-center product-item">
+			
+			<div class="product-title col-sm-12">
+				<p><%= link_to product.name, "#" %></p>
+			</div>
+
+			<div class="product-image">
+				
+				<div class="product-price">
+					<span>$400</span>
+				</div>
+
+				<img src="http://placehold.it/396x250">
+			</div>
+
+			<div class="product-footer">
+				<%= link_to "Add to Cart", "#", class: "btn btn-info" %>
+			</div>
+
 		</article>
 	<% end %>
 </main>

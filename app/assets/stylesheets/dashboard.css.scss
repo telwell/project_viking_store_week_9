@@ -21,9 +21,59 @@ nav {
 }
 
 /*--------------------
+	HERO CSS
+--------------------*/
+.main-hero {
+	background-color: #333;
+	color: white;
+	height: 150px;
+	margin-bottom: 20px;
+	line-height: 150px;
+
+	h2 {
+		padding-top: 60px;
+	}
+}
+
+/*--------------------
 	MAIN CSS
 --------------------*/
+.product-item{
+	margin-bottom: 20px;
 
+	.product-title {
+		background-color: #333;
+		height: 40px;
+
+		a {
+			color: white;
+			line-height: 42px;
+		}
+	}
+
+	.product-image {
+		position: relative;
+	}
+
+	.product-price {
+		background-color: white;
+		border: 1px solid #aaa;
+		padding: 5px;
+		position: absolute;
+		top: 40px; 
+		right: 0px;
+	}
+
+	.product-footer {
+		background-color: #333;
+		height: 60px;
+		line-height: 56px;
+		
+		a {
+
+		}
+	}
+}
 
 
 /*--------------------
