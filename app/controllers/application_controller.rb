@@ -12,9 +12,6 @@ class ApplicationController < ActionController::Base
 	end
 
 	# Check the search_user_id param to see if it's valid
-	
-	# TODO: Change name to valid_search_user? in all instances
-	# If it's true/false always end it in a question mark
 	def check_search_user
 		if params[:search_user_id]
 			if User.pluck(:id).include?(params[:search_user_id].to_i)
@@ -26,6 +23,17 @@ class ApplicationController < ActionController::Base
 		else
 			false
 		end
+	end
+
+	def add_product_to_cart(product_id)
+		# Add a product to the cart or setup a new cart session with this product
+		if session[:cart]
+			session[:cart] << product_id
+		else
+			session[:cart] = [product_id]
+		end
+		# Really no reason this won't fail since we're just using a session...
+		flash[:success] = "Product added to cart successfully!"
 	end
 
 end

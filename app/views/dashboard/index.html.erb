@@ -25,6 +25,10 @@
 </div>
 <!-- /Hero -->
 
+<div class="col-sm-12">
+	<h2><%= session[:cart] %></h2>
+</div>
+
 <!-- Filter by Category -->
 <div class="row category-filter">
 	<div class="col-sm-3 pull-right">
@@ -59,7 +63,7 @@
 			</div>
 
 			<div class="product-footer">
-				<%= link_to "Add to Cart", "#", class: "btn btn-info" %>
+				<%= link_to "Add to Cart", dashboard_index_path(:add_product => product.id), class: "btn btn-info" %>
 			</div>
 
 		</article>
