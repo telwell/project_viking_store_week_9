@@ -1,13 +1,5 @@
 module Admin::UsersHelper
 
-	def has_cart?(user)
-		if user.orders.where("checkout_date IS null").present?
-			user.orders.where("checkout_date IS null")
-		else
-			false
-		end
-	end
-
 	# TODO: Fix shipping/billing to first letter of string on User show page when
 	# address not set.
 	

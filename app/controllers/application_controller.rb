@@ -25,28 +25,7 @@ class ApplicationController < ActionController::Base
 		end
 	end
 
-	def add_product_to_cart(product_id)
-		# Add a product to the cart or setup a new cart session with this product (product_id => quantity)
-		if session[:cart]
-			if session[:cart][product_id]
-				# Item already exists in cart
-				session[:cart][product_id] += 1
-			else
-				# Item isn't currently in cart
-				session[:cart][product_id] = 1
-			end
-		else
-			session[:cart] = { product_id => 1 }
-		end
-		# Really no reason this won't fail since we're just using a session...
-		flash[:success] = "Product added to cart successfully!"
-	end
-
-	def merge_temp_cart(user)
-		fails
-	end
-
-	# User login methods below ---------
+	# User login methods below
 	def sign_in(user)
 		session[:current_user_id] = user.id
 		current_user = user
@@ -70,5 +49,88 @@ class ApplicationController < ActionController::Base
 		!!current_user
 	end
 	helper_method :signed_in_user?
+
+	# Cart methods and logic below
+	
+	# Returns true if the user passed has an order w/o a checkout date
+	def has_cart?(user)
+		user.orders.first.checkout_date.nil? ? true : false
+	end
+
+	def has_session_cart?
+		session[:cart] ? true : false
+	end
+
+	def add_product_to_session_cart(product_id)
+		# Add a product to the session cart or setup a 
+		# new session cart session with passed product (product_id => quantity)
+		if session[:cart]
+			if session[:cart][product_id]
+				# Item already exists in cart
+				session[:cart][product_id] += 1
+			else
+				# Item isn't currently in cart
+				session[:cart][product_id] = 1
+			end
+		else
+			session[:cart] = { product_id => 1 }
+		end
+		# Really no reason this won't fail since we're just using a session...
+		flash[:success] = "Product added to cart successfully!"
+	end
+
+	# Merge session cart with persisted cart if session cart exists
+	# otherwise create an empty cart for this user. Destroys the 
+	# session cart as well.
+	def merge_temp_cart(user)
+		# User has NO session cart AND NO persisted cart
+		if !has_session_cart? && !has_cart?(user)
+			create_new_cart(user)
+
+		# User has session cart AND NO persisted cart
+		elsif has_session_cart? && !has_cart?(user)
+			order_id = create_new_cart(user)
+			add_products_to_cart(order_id, session.delete(:cart))
+
+		# Don't need to do anything if User has NO session cart AND persisted cart
+
+		# User has session cart AND persisted cart
+		elsif has_session_cart? && has_cart?(user)
+			order_id = user.orders.first.id
+			add_products_to_cart(order_id, session.delete(:cart))
+		end
+	end
+
+	# Creates a new cart with nothing in it for the user
+	def create_new_cart(user)
+		order = Order.create(:user_id => user.id, :shipping_id => user.shipping_id, :billing_id => user.billing_id)
+		order.id
+	end
+
+	# Adds a hash of product ID's to an order. Account for the edge case
+	# where there's already a number of products in the cart from the session cart.
+	def add_products_to_cart(order_id, products)
+		products.each do |product_id, quantity|
+			if OrderContents.where("order_id = ?", order_id).where("product_id = ?", product_id).exists?
+				OrderContents.where("order_id = ?", order_id).where("product_id = ?", product_id).update(:quantity => quantity)
+			else
+				OrderContents.create(:order_id => order_id, :product_id => product_id, :quantity => quantity)
+			end
+		end
+	end
+
+	# Adds one item to the cart of a signed in user
+	def add_product_to_cart(user, product_id)
+		if has_cart?(user)
+			order_id = user.orders.first.id
+			if OrderContents.where("order_id = ?", order_id).where("product_id = ?", product_id).exists?
+				quantity = OrderContents.where("order_id = ?", order_id).where("product_id = ?", product_id).first.quantity
+				OrderContents.where("order_id = ?", order_id).where("product_id = ?", product_id).first.update(:quantity => quantity+1)
+			else
+				OrderContents.create(:order_id => order_id, :product_id => product_id, :quantity => 1)
+			end
+			flash[:success] = "Product added to cart successfully!"
+		end
+	end
 
 end

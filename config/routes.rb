@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   # Main dashboard only has index for now.
   resources :dashboard, only: [:index]
   resource :session, only: [:new, :create, :destroy]
+  
+  # QUESTION: Would this be singular? There's only one cart at a time
+  # like there is in :session above? Let's play this out...
+  resource :cart, only: [:index, :new, :create, :update, :destroy, :edit]
 
   namespace :admin do
     # Admin dashboard, only using index for now.
