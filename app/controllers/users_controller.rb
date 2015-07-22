@@ -1,11 +1,12 @@
 class UsersController < ApplicationController
 
 	def new
-		@user = User.new
+		@user ||= User.new
 	end
 
 	def create
-		if @user = User.create(whitelisted_user_params)
+		if User.create(whitelisted_user_params).valid?
+			@user = User.create(whitelisted_user_params)
 			params[:user][:addresses_attributes].each_with_index do |address, i|
 				set_address_ids(@user, address[1], params, i)
 			end
