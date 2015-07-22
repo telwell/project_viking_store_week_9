@@ -29,6 +29,7 @@ class ApplicationController < ActionController::Base
 	def sign_in(user)
 		session[:current_user_id] = user.id
 		current_user = user
+		create_new_cart(user) unless has_cart?(user)
 	end
 
 	def sign_out
@@ -54,7 +55,13 @@ class ApplicationController < ActionController::Base
 	
 	# Returns true if the user passed has an order w/o a checkout date
 	def has_cart?(user)
-		user.orders.first.checkout_date.nil? ? true : false
+		if user.orders.first.nil?
+			false
+		elsif user.orders.first.checkout_date.nil?
+			true
+		else
+		 false
+		end
 	end
 
 	def has_session_cart?
