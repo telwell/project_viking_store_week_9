@@ -10,7 +10,7 @@
 				<div class="link-wrapper">
 					<%= link_to "Your Cart", "#" %><br>
 					<% if signed_in_user?  %>
-						<%= link_to "Sign Out", session_path, method: :delete %>
+						<%= link_to "Sign Out", session_path, method: :delete %> | <%= link_to "Edit Profile", edit_user_path  %>
 					<% else %>
 						<%= link_to "Sign In", new_session_path %>
 					<% end %>

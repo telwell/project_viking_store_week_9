@@ -1,55 +1,14 @@
 <div class="row">
 	<div class="col-sm-12">
 		<h2>Create New User:</h2>
-		<%= form_for @user ||= User.new , :url => user_path do |f| %>
-			<div class="col-sm-6">
-				
-				<% 2.times do |i| %>
-				
-					<h3>Saved Address <%= i+1 %> (optional)</h3>
-
-					<%= f.fields_for "addresses_attributes][#{i}", Address.new do |address_fields| %>
-						<div class="form-group">
-							<%= address_fields.label :street_address %>
-					    <%= address_fields.text_field :street_address, class: "form-control" %>
-					  </div>
-
-						<div class="form-group">
-					    <%= address_fields.collection_select(:city_id, City.all, :id, :name, {}, {class: "form-control"}) %>
-					  </div>
-
-						<div class="form-group">
-					    <%= address_fields.collection_select(:state_id, State.all, :id, :name, {}, {class: "form-control"}) %>
-						</div>
-
-						<div class="form-group">
-					    <%= address_fields.label :zip_code %>
-					    <%= address_fields.text_field :zip_code, class: "form-control" %>
-						</div>
-
-						<div class="form-group">
-							<div class="radio">
-								<label>
-									<% x_address_type = ( i == 0 ? :first_address_type : :second_address_type ) %>
-									<%= radio_button_tag(x_address_type, "shipping") %>
-									Default Shipping Address
-								</label>
-							</div>
-							
-							<div class="radio">
-								<label>
-									<%= radio_button_tag(x_address_type, "billing") %>
-									Default Billing Address
-								</label>
-							</div>
-						</div>
-
-					<% end %> <!-- end fields for -->
-
-				<% end %> <!-- end 2.times do -->
-
-			</div>
-
+		<%= form_for user ||= User.new , :url => user_path do |f| %>
+			<% fails %>
+			<% @addresses.each_with_index do |address, index| %>
+			
+				<%= render partial: "user_address_form", locals: { user: @user, address: address, index: index, user: user } %>
+			
+			<% end %>
+			
 			<div class="col-sm-6">
 				<div class="form-group">
 					<%= f.label :first_name, "First Name" %>
@@ -70,7 +29,7 @@
 					<%= f.submit "Sign Up", class: "form-control btn btn-primary" %>
 				</div>
 			</div>
-			
+
 		<% end %>
 
 	</div>	

@@ -1,0 +1,41 @@
+<!-- Will only be available when user is logged in -->
+<div class="row">
+	<div class="col-sm-12">
+		<h2>Edit User:</h2>
+		
+		<%= form_for @current_user ||= User.new , :url => user_path do |f| %>
+
+			<% @addresses.each_with_index do |address, index| %>
+
+				<%= render partial: "user_address_form", locals: { user: @current_user, address: address, index: index, user_form: f } %>
+			
+			<% end %>	
+
+			<div class="col-sm-6">
+
+				<div class="form-group">
+					<%= f.label :first_name, "First Name" %>
+					<%= f.text_field :first_name, class: "form-control" %>
+				</div>
+
+				<div class="form-group">
+					<%= f.label :last_name, "Last Name" %>
+					<%= f.text_field :last_name, class: "form-control" %>
+				</div>
+
+				<div class="form-group">
+					<%= f.label :email, "Email" %>
+					<%= f.text_field :email, class: "form-control" %>
+				</div>
+				
+				<div class="form-group text-center">
+					<%= f.submit class: "form-control btn btn-primary" %>
+					<%= link_to "Delete my account", "#" %>
+				</div>
+				
+			</div>
+
+		<% end %> <!-- end form_for -->
+
+	</div>	
+</div>

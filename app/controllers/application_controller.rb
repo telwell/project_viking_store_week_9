@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
 		session[:user_id] ||= user_id
 	end
 
+
 	# Check the search_user_id param to see if it's valid
 	def check_search_user
 		if params[:search_user_id]
@@ -25,12 +26,14 @@ class ApplicationController < ActionController::Base
 		end
 	end
 
+
 	# User login methods below
 	def sign_in(user)
 		session[:current_user_id] = user.id
 		current_user = user
 		create_new_cart(user) unless has_cart?(user)
 	end
+
 
 	def sign_out
 		session.delete(:current_user_id) && current_user = nil
@@ -42,9 +45,11 @@ class ApplicationController < ActionController::Base
 	end
 	helper_method :current_user
 
+
 	def current_user=(user)
 		@current_user = user
 	end
+
 
 	def signed_in_user?
 		!!current_user
@@ -65,7 +70,7 @@ class ApplicationController < ActionController::Base
 	end
 
 	def has_session_cart?
-		session[:cart] ? true : false
+		!!session[:cart]
 	end
 
 	def add_product_to_session_cart(product_id)
@@ -119,7 +124,9 @@ class ApplicationController < ActionController::Base
 	def add_products_to_cart(order_id, products)
 		products.each do |product_id, quantity|
 			if OrderContents.where("order_id = ?", order_id).where("product_id = ?", product_id).exists?
-				OrderContents.where("order_id = ?", order_id).where("product_id = ?", product_id).update(:quantity => quantity)
+				order = OrderContents.where("order_id = ?", order_id).where("product_id = ?", product_id).first
+				order_quantity = order[:quantity]
+				order.update(:quantity => order_quantity + quantity )
 			else
 				OrderContents.create(:order_id => order_id, :product_id => product_id, :quantity => quantity)
 			end

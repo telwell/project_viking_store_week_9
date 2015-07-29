@@ -1,0 +1,73 @@
+<%= form_for user ||= User.new , :url => user_path do |f| %>
+	<div class="col-sm-6">
+		
+		<% addresses.each_with_index do |address, i| %>
+		
+			<h3>Saved Address <%= i+1 %> (optional)</h3>
+
+			<%= f.fields_for "addresses_attributes][#{i}", address do |address_fields| %>
+				<div class="form-group">
+					<%= address_fields.label :street_address %>
+			    <%= address_fields.text_field :street_address, class: "form-control" %>
+			  </div>
+
+				<div class="form-group">
+			    <%= address_fields.collection_select(:city_id, City.all, :id, :name, {prompt: true}, {class: "form-control"}) %>
+			  </div>
+
+				<div class="form-group">
+			    <%= address_fields.collection_select(:state_id, State.all, :id, :name, {prompt: true}, {class: "form-control"}) %>
+				</div>
+
+				<div class="form-group">
+			    <%= address_fields.label :zip_code %>
+			    <%= address_fields.text_field :zip_code, class: "form-control" %>
+				</div>
+
+			<div class="form-group">
+					<div class="radio">
+						<label>
+							<% x_address_type = ( i == 0 ? :first_address_type : :second_address_type ) %>
+							<%= radio_button_tag(x_address_type, "shipping", check_shipping(i)) %>
+							Default Shipping Address
+						</label>
+					</div>
+					
+					<div class="radio">
+						<label>
+							<%= radio_button_tag(x_address_type, "billing", check_billing(i)) %>
+							Default Billing Address
+						</label>
+					</div>
+				</div>
+
+			<% end %> <!-- end fields for -->
+
+		<% end %> <!-- end each_with_index do -->
+
+		<%= render partial: "new_user_form", locals: { addresses: [Address.new] }  %>
+
+	</div>
+
+	<div class="col-sm-6">
+		<div class="form-group">
+			<%= f.label :first_name, "First Name" %>
+			<%= f.text_field :first_name, class: "form-control" %>
+		</div>
+
+		<div class="form-group">
+			<%= f.label :last_name, "Last Name" %>
+			<%= f.text_field :last_name, class: "form-control" %>
+		</div>
+
+		<div class="form-group">
+			<%= f.label :email, "Email" %>
+			<%= f.text_field :email, class: "form-control" %>
+		</div>
+		
+		<div class="form-group">
+			<%= f.submit "Sign Up", class: "form-control btn btn-primary" %>
+		</div>
+	</div>
+	
+<% end %>

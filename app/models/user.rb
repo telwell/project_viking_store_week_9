@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
 	has_many :addresses, dependent: :destroy
+	accepts_nested_attributes_for :addresses, 
+                                :reject_if => :all_blank, 
+                                :allow_destroy => :true
 	has_many :cities
 	has_many :states
 	has_one :credit_card, dependent: :destroy

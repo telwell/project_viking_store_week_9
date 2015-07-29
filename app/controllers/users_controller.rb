@@ -1,11 +1,13 @@
 class UsersController < ApplicationController
+	include UsersHelper
 
 	def new
 		@user ||= User.new
+		@addresses = [Address.new, Address.new]
 	end
 
 	def create
-		if User.create(whitelisted_user_params).valid?
+		if User.new(whitelisted_user_params).valid?
 			@user = User.create(whitelisted_user_params)
 			params[:user][:addresses_attributes].each_with_index do |address, i|
 				set_address_ids(@user, address[1], params, i)
@@ -19,14 +21,42 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def edit
+		current_user
+		@addresses = @current_user.addresses
+		@addresses << Address.new
+	end
+
+	def update
+		current_user
+		if @current_user.update(whitelisted_user_params)
+			flash[:success] = "User updated successfully"
+			set_user_addresses(params, @current_user)
+			redirect_to root_path
+		else
+			flash[:error] = "User could not be updated"
+			render :edit
+		end
+	end
+
+
 private
 	def whitelisted_user_params
 		params.require(:user).
 			permit(:first_name,
 						 :last_name,
              :email,
+             :addresses_attributes => [
+             		:street_address,
+             		:city_id, 
+             		:state_id,
+             		:zip_code, 
+             		:id, 
+             		:_destroy
+             ]
 			)
 	end
+
 
 	def set_address_ids(user, address, user_params, index)
 		# QUESTION: Trying to set the shipping_id and billing_id for this particular user

@@ -1,0 +1,51 @@
+	<div class="col-sm-6">
+		
+		<h3>Saved Address <%= index+1 %> (optional)</h3>
+
+		<%= user_form.fields_for :addresses, address do |address_fields| %>
+			<div class="form-group">
+				<%= address_fields.label :street_address %>
+		    <%= address_fields.text_field :street_address, class: "form-control" %>
+		  </div>
+
+			<div class="form-group">
+		    <%= address_fields.collection_select(:city_id, City.all, :id, :name, {prompt: true}, {class: "form-control"}) %>
+		  </div>
+
+			<div class="form-group">
+		    <%= address_fields.collection_select(:state_id, State.all, :id, :name, {prompt: true}, {class: "form-control"}) %>
+			</div>
+
+			<div class="form-group">
+		    <%= address_fields.label :zip_code %>
+		    <%= address_fields.text_field :zip_code, class: "form-control" %>
+			</div>
+
+			<div class="form-group">
+				<% if address_fields.object.persisted? %>
+					<div class="radio">
+						<label>
+							<%= radio_button_tag("default_shipping", address.id, is_default_shipping?(address.id)) %>
+							Default Shipping Address
+						</label>
+					</div>
+					
+					<div class="radio">
+						<label>
+							<%= radio_button_tag("default_billing", address.id, is_default_billing?(address.id)) %>
+							Default Billing Address
+						</label>
+					</div>
+				<% end %>
+			</div>
+
+			<div class="form-group">
+				<% if address_fields.object.persisted? %>
+      		<%= address_fields.label :_destroy, "Delete Address?" %>
+      		<%= address_fields.check_box :_destroy %>
+      	<% end %>				
+			</div>
+
+		<% end %> <!-- end fields for -->
+
+	</div>
