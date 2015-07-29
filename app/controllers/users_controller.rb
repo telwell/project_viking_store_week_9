@@ -36,6 +36,17 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def destroy
+		current_user
+		if @current_user.destroy
+			flash[:success] = "Successfully deleted user."
+			sign_out
+			redirect_to root_path
+		else
+			flash[:error] = "Aliens stopped us from deleting this user, HELP!"
+			render :edit
+		end
+	end
 
 private
 	def whitelisted_user_params

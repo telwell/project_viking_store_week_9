@@ -1366,3 +1366,1638 @@ Processing by UsersController#edit as HTML
   Rendered users/edit.html.erb within layouts/application (31.9ms)
   Rendered _flash.html.erb (0.1ms)
 Completed 200 OK in 155ms (Views: 149.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2015-07-28 22:00:59 -0400
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2342]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT  "products".* FROM "products" LIMIT 9 OFFSET 0[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "products"
+  Rendered dashboard/index.html.erb within layouts/application (8.3ms)
+  Rendered _flash.html.erb (0.1ms)
+Completed 200 OK in 123ms (Views: 120.6ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/session" for ::1 at 2015-07-28 22:01:02 -0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"WUW44X325SHLSvoOUftXCqptpnxe5Q1sPIues8BJRhSMSgKnezR9vinjU0H8x/n5ajg8QmSJzL6inG8Xqp6+sA=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-07-28 22:01:02 -0400
+Processing by DashboardController#index as HTML
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mProduct Load (0.1ms)[0m  SELECT  "products".* FROM "products" LIMIT 9 OFFSET 0
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products"[0m
+  Rendered dashboard/index.html.erb within layouts/application (15.9ms)
+  Rendered _flash.html.erb (0.1ms)
+Completed 200 OK in 130ms (Views: 128.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/session/new" for ::1 at 2015-07-28 22:01:03 -0400
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+  Rendered _flash.html.erb (0.1ms)
+Completed 200 OK in 126ms (Views: 125.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2015-07-28 22:01:07 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hmn/bagXh0prksr3zqqODJsS7/eyVqOa2SvikKErjMFTZkUrrtUf1Yk7Y7hjliD/W0d1yYg6YkhHPBM0y/x0ZQ==", "email"=>"me@trevorelwell.co", "commit"=>"Login"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "me@trevorelwell.co"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2015-07-28 22:01:07 -0400
+Processing by DashboardController#index as HTML
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mProduct Load (0.2ms)[0m  SELECT  "products".* FROM "products" LIMIT 9 OFFSET 0
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products"[0m
+  Rendered dashboard/index.html.erb within layouts/application (9.6ms)
+  Rendered _flash.html.erb (0.1ms)
+Completed 200 OK in 133ms (Views: 131.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/session/new" for ::1 at 2015-07-28 22:01:09 -0400
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.4ms)
+  Rendered _flash.html.erb (0.1ms)
+Completed 200 OK in 120ms (Views: 119.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2015-07-28 22:01:12 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"quK2MK67fuMTGiFGpGg/B+cKfx+2t6b6GYtPn8wnQ4x/7Qx2qHnmfPGziAkJVJH0J1/lIYzbZyiHnL47pvC7KA==", "email"=>"me@trevorelwell.com", "commit"=>"Login"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "me@trevorelwell.com"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1[0m  [["email", "me@trevorelwell.com"]]
+  [1m[35mOrder Load (0.1ms)[0m  SELECT  "orders".* FROM "orders" WHERE "orders"."user_id" = ?  ORDER BY "orders"."id" ASC LIMIT 1  [["user_id", 2304]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "orders".* FROM "orders" WHERE "orders"."user_id" = ?  ORDER BY "orders"."id" ASC LIMIT 1[0m  [["user_id", 2304]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2304]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "orders".* FROM "orders" WHERE "orders"."user_id" = ?  ORDER BY "orders"."id" ASC LIMIT 1[0m  [["user_id", 2304]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "orders".* FROM "orders" WHERE "orders"."user_id" = ?  ORDER BY "orders"."id" ASC LIMIT 1  [["user_id", 2304]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2015-07-28 22:01:12 -0400
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2304]]
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT  "products".* FROM "products" LIMIT 9 OFFSET 0[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "products"
+  Rendered dashboard/index.html.erb within layouts/application (11.2ms)
+  Rendered _flash.html.erb (0.1ms)
+Completed 200 OK in 129ms (Views: 127.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/user/edit" for ::1 at 2015-07-28 22:01:14 -0400
+Processing by UsersController#edit as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2304]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mAddress Load (0.1ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."user_id" = ?  [["user_id", 2304]]
+  [1m[36mCity Load (0.4ms)[0m  [1mSELECT "cities".* FROM "cities"[0m
+  [1m[35mState Load (0.4ms)[0m  SELECT "states".* FROM "states"
+  Rendered users/_user_address_form.html.erb (12.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cities".* FROM "cities"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "states".* FROM "states"
+  Rendered users/_user_address_form.html.erb (10.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cities".* FROM "cities"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "states".* FROM "states"
+  Rendered users/_user_address_form.html.erb (8.0ms)
+  Rendered users/edit.html.erb within layouts/application (40.5ms)
+  Rendered _flash.html.erb (0.1ms)
+Completed 200 OK in 180ms (Views: 175.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/user/edit" for ::1 at 2015-07-28 22:11:37 -0400
+Processing by UsersController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2304]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mAddress Load (0.3ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."user_id" = ?  [["user_id", 2304]]
+  [1m[36mCity Load (0.4ms)[0m  [1mSELECT "cities".* FROM "cities"[0m
+  [1m[35mState Load (0.4ms)[0m  SELECT "states".* FROM "states"
+  Rendered users/_user_address_form.html.erb (25.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cities".* FROM "cities"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "states".* FROM "states"
+  Rendered users/_user_address_form.html.erb (14.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cities".* FROM "cities"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "states".* FROM "states"
+  Rendered users/_user_address_form.html.erb (7.9ms)
+  Rendered users/edit.html.erb within layouts/application (56.3ms)
+  Rendered _flash.html.erb (0.1ms)
+Completed 200 OK in 214ms (Views: 183.2ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/assets/admin/addresses.css?body=1" for ::1 at 2015-07-28 22:11:38 -0400
+
+
+Started GET "/assets/admin/dashboard.css?body=1" for ::1 at 2015-07-28 22:11:38 -0400
+
+
+Started GET "/assets/admin/categories.css?body=1" for ::1 at 2015-07-28 22:11:38 -0400
+
+
+Started GET "/assets/admin/order_contents.css?body=1" for ::1 at 2015-07-28 22:11:38 -0400
+
+
+Started GET "/assets/admin.css?body=1" for ::1 at 2015-07-28 22:11:38 -0400
+
+
+Started GET "/assets/admin/credit_cards.css?body=1" for ::1 at 2015-07-28 22:11:38 -0400
+
+
+Started GET "/assets/admin/orders.css?body=1" for ::1 at 2015-07-28 22:11:38 -0400
+
+
+Started GET "/assets/admin/products.css?body=1" for ::1 at 2015-07-28 22:11:38 -0400
+
+
+Started GET "/assets/admin/users.css?body=1" for ::1 at 2015-07-28 22:11:38 -0400
+
+
+Started GET "/assets/carts.css?body=1" for ::1 at 2015-07-28 22:11:38 -0400
+
+
+Started GET "/assets/dashboard.css?body=1" for ::1 at 2015-07-28 22:11:38 -0400
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for ::1 at 2015-07-28 22:11:38 -0400
+
+
+Started GET "/assets/sessions.css?body=1" for ::1 at 2015-07-28 22:11:38 -0400
+
+
+Started GET "/assets/application.css?body=1" for ::1 at 2015-07-28 22:11:38 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for ::1 at 2015-07-28 22:11:38 -0400
+
+
+Started GET "/assets/users.css?body=1" for ::1 at 2015-07-28 22:11:38 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for ::1 at 2015-07-28 22:11:38 -0400
+
+
+Started GET "/assets/admin/addresses.js?body=1" for ::1 at 2015-07-28 22:11:38 -0400
+
+
+Started GET "/assets/admin/credit_cards.js?body=1" for ::1 at 2015-07-28 22:11:38 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for ::1 at 2015-07-28 22:11:38 -0400
+
+
+Started GET "/assets/admin/orders.js?body=1" for ::1 at 2015-07-28 22:11:38 -0400
+
+
+Started GET "/assets/admin.js?body=1" for ::1 at 2015-07-28 22:11:38 -0400
+
+
+Started GET "/assets/admin/products.js?body=1" for ::1 at 2015-07-28 22:11:38 -0400
+
+
+Started GET "/assets/admin/users.js?body=1" for ::1 at 2015-07-28 22:11:38 -0400
+
+
+Started GET "/assets/admin/order_contents.js?body=1" for ::1 at 2015-07-28 22:11:38 -0400
+
+
+Started GET "/assets/carts.js?body=1" for ::1 at 2015-07-28 22:11:38 -0400
+
+
+Started GET "/assets/categories.js?body=1" for ::1 at 2015-07-28 22:11:38 -0400
+
+
+Started GET "/assets/dashboard.js?body=1" for ::1 at 2015-07-28 22:11:38 -0400
+
+
+Started GET "/assets/sessions.js?body=1" for ::1 at 2015-07-28 22:11:38 -0400
+
+
+Started GET "/assets/users.js?body=1" for ::1 at 2015-07-28 22:11:38 -0400
+
+
+Started GET "/assets/application.js?body=1" for ::1 at 2015-07-28 22:11:38 -0400
+
+
+Started DELETE "/user/edit.2304" for ::1 at 2015-07-28 22:11:46 -0400
+
+ActionController::RoutingError (No route matches [DELETE] "/user/edit.2304"):
+  actionpack (4.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.3) lib/rails/engine.rb:518:in `call'
+  railties (4.2.3) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/telwell/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/telwell/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/telwell/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/telwell/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /Users/telwell/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.3ms)
+  Rendered /Users/telwell/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.2ms)
+  Rendered /Users/telwell/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /Users/telwell/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (90.0ms)
+
+
+Started GET "/user/edit" for ::1 at 2015-07-28 22:11:56 -0400
+Processing by UsersController#edit as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2304]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mAddress Load (0.2ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."user_id" = ?  [["user_id", 2304]]
+  [1m[36mCity Load (0.3ms)[0m  [1mSELECT "cities".* FROM "cities"[0m
+  [1m[35mState Load (0.3ms)[0m  SELECT "states".* FROM "states"
+  Rendered users/_user_address_form.html.erb (11.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cities".* FROM "cities"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "states".* FROM "states"
+  Rendered users/_user_address_form.html.erb (7.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cities".* FROM "cities"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "states".* FROM "states"
+  Rendered users/_user_address_form.html.erb (10.7ms)
+  Rendered users/edit.html.erb within layouts/application (36.9ms)
+  Rendered _flash.html.erb (0.1ms)
+Completed 200 OK in 186ms (Views: 181.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/admin.css?body=1" for ::1 at 2015-07-28 22:11:56 -0400
+
+
+Started GET "/assets/admin/addresses.css?body=1" for ::1 at 2015-07-28 22:11:56 -0400
+
+
+Started GET "/assets/admin/dashboard.css?body=1" for ::1 at 2015-07-28 22:11:56 -0400
+
+
+Started GET "/assets/admin/categories.css?body=1" for ::1 at 2015-07-28 22:11:56 -0400
+
+
+Started GET "/assets/admin/credit_cards.css?body=1" for ::1 at 2015-07-28 22:11:56 -0400
+
+
+Started GET "/assets/admin/order_contents.css?body=1" for ::1 at 2015-07-28 22:11:56 -0400
+
+
+Started GET "/assets/admin/orders.css?body=1" for ::1 at 2015-07-28 22:11:56 -0400
+
+
+Started GET "/assets/admin/products.css?body=1" for ::1 at 2015-07-28 22:11:56 -0400
+
+
+Started GET "/assets/admin/users.css?body=1" for ::1 at 2015-07-28 22:11:56 -0400
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for ::1 at 2015-07-28 22:11:56 -0400
+
+
+Started GET "/assets/carts.css?body=1" for ::1 at 2015-07-28 22:11:56 -0400
+
+
+Started GET "/assets/dashboard.css?body=1" for ::1 at 2015-07-28 22:11:56 -0400
+
+
+Started GET "/assets/sessions.css?body=1" for ::1 at 2015-07-28 22:11:56 -0400
+
+
+Started GET "/assets/users.css?body=1" for ::1 at 2015-07-28 22:11:56 -0400
+
+
+Started GET "/assets/application.css?body=1" for ::1 at 2015-07-28 22:11:56 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for ::1 at 2015-07-28 22:11:56 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for ::1 at 2015-07-28 22:11:56 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for ::1 at 2015-07-28 22:11:56 -0400
+
+
+Started GET "/assets/admin/addresses.js?body=1" for ::1 at 2015-07-28 22:11:56 -0400
+
+
+Started GET "/assets/admin.js?body=1" for ::1 at 2015-07-28 22:11:56 -0400
+
+
+Started GET "/assets/admin/credit_cards.js?body=1" for ::1 at 2015-07-28 22:11:56 -0400
+
+
+Started GET "/assets/admin/order_contents.js?body=1" for ::1 at 2015-07-28 22:11:56 -0400
+
+
+Started GET "/assets/admin/orders.js?body=1" for ::1 at 2015-07-28 22:11:56 -0400
+
+
+Started GET "/assets/admin/users.js?body=1" for ::1 at 2015-07-28 22:11:56 -0400
+
+
+Started GET "/assets/categories.js?body=1" for ::1 at 2015-07-28 22:11:56 -0400
+
+
+Started GET "/assets/carts.js?body=1" for ::1 at 2015-07-28 22:11:56 -0400
+
+
+Started GET "/assets/dashboard.js?body=1" for ::1 at 2015-07-28 22:11:56 -0400
+
+
+Started GET "/assets/sessions.js?body=1" for ::1 at 2015-07-28 22:11:56 -0400
+
+
+Started GET "/assets/application.js?body=1" for ::1 at 2015-07-28 22:11:56 -0400
+
+
+Started GET "/assets/users.js?body=1" for ::1 at 2015-07-28 22:11:56 -0400
+
+
+Started GET "/assets/admin/products.js?body=1" for ::1 at 2015-07-28 22:11:56 -0400
+
+
+Started GET "/user/edit" for ::1 at 2015-07-28 22:12:31 -0400
+Processing by UsersController#edit as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2304]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mAddress Load (0.2ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."user_id" = ?  [["user_id", 2304]]
+  [1m[36mCity Load (0.4ms)[0m  [1mSELECT "cities".* FROM "cities"[0m
+  [1m[35mState Load (0.3ms)[0m  SELECT "states".* FROM "states"
+  Rendered users/_user_address_form.html.erb (9.5ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cities".* FROM "cities"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "states".* FROM "states"
+  Rendered users/_user_address_form.html.erb (8.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cities".* FROM "cities"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "states".* FROM "states"
+  Rendered users/_user_address_form.html.erb (13.3ms)
+  Rendered users/edit.html.erb within layouts/application (38.8ms)
+  Rendered _flash.html.erb (0.1ms)
+Completed 200 OK in 163ms (Views: 157.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/admin.css?body=1" for ::1 at 2015-07-28 22:12:32 -0400
+
+
+Started GET "/assets/admin/addresses.css?body=1" for ::1 at 2015-07-28 22:12:32 -0400
+
+
+Started GET "/assets/admin/credit_cards.css?body=1" for ::1 at 2015-07-28 22:12:32 -0400
+
+
+Started GET "/assets/admin/dashboard.css?body=1" for ::1 at 2015-07-28 22:12:32 -0400
+
+
+Started GET "/assets/admin/order_contents.css?body=1" for ::1 at 2015-07-28 22:12:32 -0400
+
+
+Started GET "/assets/admin/categories.css?body=1" for ::1 at 2015-07-28 22:12:32 -0400
+
+
+Started GET "/assets/admin/orders.css?body=1" for ::1 at 2015-07-28 22:12:32 -0400
+
+
+Started GET "/assets/admin/products.css?body=1" for ::1 at 2015-07-28 22:12:32 -0400
+
+
+Started GET "/assets/admin/users.css?body=1" for ::1 at 2015-07-28 22:12:32 -0400
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for ::1 at 2015-07-28 22:12:32 -0400
+
+
+Started GET "/assets/carts.css?body=1" for ::1 at 2015-07-28 22:12:32 -0400
+
+
+Started GET "/assets/dashboard.css?body=1" for ::1 at 2015-07-28 22:12:32 -0400
+
+
+Started GET "/assets/sessions.css?body=1" for ::1 at 2015-07-28 22:12:32 -0400
+
+
+Started GET "/assets/users.css?body=1" for ::1 at 2015-07-28 22:12:32 -0400
+
+
+Started GET "/assets/application.css?body=1" for ::1 at 2015-07-28 22:12:32 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for ::1 at 2015-07-28 22:12:32 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for ::1 at 2015-07-28 22:12:32 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for ::1 at 2015-07-28 22:12:32 -0400
+
+
+Started GET "/assets/admin.js?body=1" for ::1 at 2015-07-28 22:12:32 -0400
+
+
+Started GET "/assets/admin/addresses.js?body=1" for ::1 at 2015-07-28 22:12:32 -0400
+
+
+Started GET "/assets/admin/order_contents.js?body=1" for ::1 at 2015-07-28 22:12:32 -0400
+
+
+Started GET "/assets/admin/orders.js?body=1" for ::1 at 2015-07-28 22:12:32 -0400
+
+
+Started GET "/assets/admin/products.js?body=1" for ::1 at 2015-07-28 22:12:32 -0400
+
+
+Started GET "/assets/admin/credit_cards.js?body=1" for ::1 at 2015-07-28 22:12:32 -0400
+
+
+Started GET "/assets/admin/users.js?body=1" for ::1 at 2015-07-28 22:12:32 -0400
+
+
+Started GET "/assets/carts.js?body=1" for ::1 at 2015-07-28 22:12:32 -0400
+
+
+Started GET "/assets/sessions.js?body=1" for ::1 at 2015-07-28 22:12:32 -0400
+
+
+Started GET "/assets/application.js?body=1" for ::1 at 2015-07-28 22:12:32 -0400
+
+
+Started GET "/assets/users.js?body=1" for ::1 at 2015-07-28 22:12:32 -0400
+
+
+Started GET "/assets/dashboard.js?body=1" for ::1 at 2015-07-28 22:12:32 -0400
+
+
+Started GET "/assets/categories.js?body=1" for ::1 at 2015-07-28 22:12:32 -0400
+
+
+Started DELETE "/user/edit" for ::1 at 2015-07-28 22:12:37 -0400
+
+ActionController::RoutingError (No route matches [DELETE] "/user/edit"):
+  actionpack (4.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.3) lib/rails/engine.rb:518:in `call'
+  railties (4.2.3) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/telwell/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/telwell/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/telwell/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/telwell/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/telwell/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.8ms)
+  Rendered /Users/telwell/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.0ms)
+  Rendered /Users/telwell/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/telwell/.rvm/gems/ruby-2.2.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (78.6ms)
+
+
+Started GET "/user/edit" for ::1 at 2015-07-28 22:13:11 -0400
+Processing by UsersController#edit as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2304]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mAddress Load (0.3ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."user_id" = ?  [["user_id", 2304]]
+  [1m[36mCity Load (0.5ms)[0m  [1mSELECT "cities".* FROM "cities"[0m
+  [1m[35mState Load (0.3ms)[0m  SELECT "states".* FROM "states"
+  Rendered users/_user_address_form.html.erb (9.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cities".* FROM "cities"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "states".* FROM "states"
+  Rendered users/_user_address_form.html.erb (9.5ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cities".* FROM "cities"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "states".* FROM "states"
+  Rendered users/_user_address_form.html.erb (7.7ms)
+  Rendered users/edit.html.erb within layouts/application (34.6ms)
+  Rendered _flash.html.erb (0.1ms)
+Completed 200 OK in 163ms (Views: 157.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/admin.css?body=1" for ::1 at 2015-07-28 22:13:12 -0400
+
+
+Started GET "/assets/admin/dashboard.css?body=1" for ::1 at 2015-07-28 22:13:12 -0400
+
+
+Started GET "/assets/admin/order_contents.css?body=1" for ::1 at 2015-07-28 22:13:12 -0400
+
+
+Started GET "/assets/admin/credit_cards.css?body=1" for ::1 at 2015-07-28 22:13:12 -0400
+
+
+Started GET "/assets/admin/addresses.css?body=1" for ::1 at 2015-07-28 22:13:12 -0400
+
+
+Started GET "/assets/admin/categories.css?body=1" for ::1 at 2015-07-28 22:13:12 -0400
+
+
+Started GET "/assets/admin/orders.css?body=1" for ::1 at 2015-07-28 22:13:12 -0400
+
+
+Started GET "/assets/admin/users.css?body=1" for ::1 at 2015-07-28 22:13:12 -0400
+
+
+Started GET "/assets/admin/products.css?body=1" for ::1 at 2015-07-28 22:13:12 -0400
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for ::1 at 2015-07-28 22:13:12 -0400
+
+
+Started GET "/assets/carts.css?body=1" for ::1 at 2015-07-28 22:13:12 -0400
+
+
+Started GET "/assets/dashboard.css?body=1" for ::1 at 2015-07-28 22:13:12 -0400
+
+
+Started GET "/assets/users.css?body=1" for ::1 at 2015-07-28 22:13:12 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for ::1 at 2015-07-28 22:13:12 -0400
+
+
+Started GET "/assets/application.css?body=1" for ::1 at 2015-07-28 22:13:12 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for ::1 at 2015-07-28 22:13:12 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for ::1 at 2015-07-28 22:13:12 -0400
+
+
+Started GET "/assets/sessions.css?body=1" for ::1 at 2015-07-28 22:13:12 -0400
+
+
+Started GET "/assets/admin.js?body=1" for ::1 at 2015-07-28 22:13:12 -0400
+
+
+Started GET "/assets/admin/credit_cards.js?body=1" for ::1 at 2015-07-28 22:13:12 -0400
+
+
+Started GET "/assets/admin/addresses.js?body=1" for ::1 at 2015-07-28 22:13:12 -0400
+
+
+Started GET "/assets/admin/order_contents.js?body=1" for ::1 at 2015-07-28 22:13:12 -0400
+
+
+Started GET "/assets/admin/products.js?body=1" for ::1 at 2015-07-28 22:13:12 -0400
+
+
+Started GET "/assets/carts.js?body=1" for ::1 at 2015-07-28 22:13:12 -0400
+
+
+Started GET "/assets/admin/users.js?body=1" for ::1 at 2015-07-28 22:13:12 -0400
+
+
+Started GET "/assets/categories.js?body=1" for ::1 at 2015-07-28 22:13:12 -0400
+
+
+Started GET "/assets/dashboard.js?body=1" for ::1 at 2015-07-28 22:13:12 -0400
+
+
+Started GET "/assets/sessions.js?body=1" for ::1 at 2015-07-28 22:13:12 -0400
+
+
+Started GET "/assets/admin/orders.js?body=1" for ::1 at 2015-07-28 22:13:12 -0400
+
+
+Started GET "/assets/application.js?body=1" for ::1 at 2015-07-28 22:13:12 -0400
+
+
+Started GET "/assets/users.js?body=1" for ::1 at 2015-07-28 22:13:12 -0400
+
+
+Started DELETE "/user.2304" for ::1 at 2015-07-28 22:13:18 -0400
+Processing by UsersController#destroy as 
+  Parameters: {"authenticity_token"=>"6iCdZJjuKCNpgNn8oRZw8eCxXFaUjuJo3794UqK+ZA0/LyciniywvIspcLMMKt4CIOTGaK7iI7pBqIn2yGmcqQ=="}
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.0ms)
+
+ActionView::MissingTemplate - Missing template users/destroy, application/destroy with {:locale=>[:en], :formats=>[:html, :text, :js, :css, :ics, :csv, :vcf, :png, :jpeg, :gif, :bmp, :tiff, :mpeg, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/telwell/Desktop/VCS/week_10/project_viking_store/app/views"
+:
+  actionview (4.2.3) lib/action_view/path_set.rb:46:in `find'
+  actionview (4.2.3) lib/action_view/lookup_context.rb:121:in `find'
+  actionview (4.2.3) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionview (4.2.3) lib/action_view/renderer/template_renderer.rb:40:in `determine_template'
+  actionview (4.2.3) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionview (4.2.3) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.2.3) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.2.3) lib/action_view/rendering.rb:100:in `_render_template'
+  actionpack (4.2.3) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.2.3) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.3) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.3) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.3) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.3) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.3) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+  activesupport (4.2.3) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/telwell/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/benchmark.rb:303:in `realtime'
+  activesupport (4.2.3) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.3) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+  actionpack (4.2.3) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+  activerecord (4.2.3) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.3) lib/action_controller/metal/instrumentation.rb:43:in `render'
+  actionpack (4.2.3) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.2.3) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.2.3) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.3) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.3) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:115:in `call'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:553:in `block (2 levels) in compile'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:503:in `call'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:88:in `run_callbacks'
+  actionpack (4.2.3) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.3) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.3) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.3) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.3) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.3) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.3) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.3) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.3) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.3) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.3) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.3) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.3) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.3) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.3) lib/action_dispatch/routing/route_set.rb:76:in `dispatch'
+  actionpack (4.2.3) lib/action_dispatch/routing/route_set.rb:45:in `serve'
+  actionpack (4.2.3) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.3) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.3) lib/action_dispatch/routing/route_set.rb:821:in `call'
+  rack (1.6.4) lib/rack/etag.rb:24:in `call'
+  rack (1.6.4) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.4) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.3) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.3) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:84:in `run_callbacks'
+  actionpack (4.2.3) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.3) lib/rails/engine.rb:518:in `call'
+  railties (4.2.3) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/telwell/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/telwell/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/telwell/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/fa3df9ffd49c34b8/variables" for ::1 at 2015-07-28 22:13:18 -0400
+
+
+Started GET "/user/edit" for ::1 at 2015-07-28 22:13:35 -0400
+Processing by UsersController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2304]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mAddress Load (0.2ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."user_id" = ?  [["user_id", 2304]]
+  [1m[36mCity Load (0.5ms)[0m  [1mSELECT "cities".* FROM "cities"[0m
+  [1m[35mState Load (0.3ms)[0m  SELECT "states".* FROM "states"
+  Rendered users/_user_address_form.html.erb (18.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cities".* FROM "cities"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "states".* FROM "states"
+  Rendered users/_user_address_form.html.erb (8.5ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cities".* FROM "cities"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "states".* FROM "states"
+  Rendered users/_user_address_form.html.erb (8.0ms)
+  Rendered users/edit.html.erb within layouts/application (42.6ms)
+  Rendered _flash.html.erb (0.1ms)
+Completed 200 OK in 212ms (Views: 181.7ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/assets/admin.css?body=1" for ::1 at 2015-07-28 22:13:36 -0400
+
+
+Started GET "/assets/admin/credit_cards.css?body=1" for ::1 at 2015-07-28 22:13:36 -0400
+
+
+Started GET "/assets/admin/addresses.css?body=1" for ::1 at 2015-07-28 22:13:36 -0400
+
+
+Started GET "/assets/admin/categories.css?body=1" for ::1 at 2015-07-28 22:13:36 -0400
+
+
+Started GET "/assets/admin/order_contents.css?body=1" for ::1 at 2015-07-28 22:13:36 -0400
+
+
+Started GET "/assets/admin/dashboard.css?body=1" for ::1 at 2015-07-28 22:13:36 -0400
+
+
+Started GET "/assets/admin/orders.css?body=1" for ::1 at 2015-07-28 22:13:36 -0400
+
+
+Started GET "/assets/admin/products.css?body=1" for ::1 at 2015-07-28 22:13:36 -0400
+
+
+Started GET "/assets/admin/users.css?body=1" for ::1 at 2015-07-28 22:13:36 -0400
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for ::1 at 2015-07-28 22:13:36 -0400
+
+
+Started GET "/assets/carts.css?body=1" for ::1 at 2015-07-28 22:13:36 -0400
+
+
+Started GET "/assets/dashboard.css?body=1" for ::1 at 2015-07-28 22:13:36 -0400
+
+
+Started GET "/assets/sessions.css?body=1" for ::1 at 2015-07-28 22:13:36 -0400
+
+
+Started GET "/assets/users.css?body=1" for ::1 at 2015-07-28 22:13:36 -0400
+
+
+Started GET "/assets/application.css?body=1" for ::1 at 2015-07-28 22:13:36 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for ::1 at 2015-07-28 22:13:36 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for ::1 at 2015-07-28 22:13:36 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for ::1 at 2015-07-28 22:13:36 -0400
+
+
+Started GET "/assets/admin.js?body=1" for ::1 at 2015-07-28 22:13:36 -0400
+
+
+Started GET "/assets/admin/addresses.js?body=1" for ::1 at 2015-07-28 22:13:36 -0400
+
+
+Started GET "/assets/admin/order_contents.js?body=1" for ::1 at 2015-07-28 22:13:36 -0400
+
+
+Started GET "/assets/admin/credit_cards.js?body=1" for ::1 at 2015-07-28 22:13:36 -0400
+
+
+Started GET "/assets/admin/orders.js?body=1" for ::1 at 2015-07-28 22:13:36 -0400
+
+
+Started GET "/assets/admin/products.js?body=1" for ::1 at 2015-07-28 22:13:36 -0400
+
+
+Started GET "/assets/carts.js?body=1" for ::1 at 2015-07-28 22:13:36 -0400
+
+
+Started GET "/assets/categories.js?body=1" for ::1 at 2015-07-28 22:13:36 -0400
+
+
+Started GET "/assets/dashboard.js?body=1" for ::1 at 2015-07-28 22:13:36 -0400
+
+
+Started GET "/assets/admin/users.js?body=1" for ::1 at 2015-07-28 22:13:36 -0400
+
+
+Started GET "/assets/sessions.js?body=1" for ::1 at 2015-07-28 22:13:36 -0400
+
+
+Started GET "/assets/application.js?body=1" for ::1 at 2015-07-28 22:13:36 -0400
+
+
+Started GET "/assets/users.js?body=1" for ::1 at 2015-07-28 22:13:36 -0400
+
+
+Started GET "/" for ::1 at 2015-07-28 22:13:42 -0400
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2304]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT  "products".* FROM "products" LIMIT 9 OFFSET 0[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "products"
+  Rendered dashboard/index.html.erb within layouts/application (69.1ms)
+  Rendered _flash.html.erb (0.1ms)
+Completed 200 OK in 272ms (Views: 262.4ms | ActiveRecord: 1.2ms)
+
+
+Started DELETE "/session" for ::1 at 2015-07-28 22:13:43 -0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"FeI0r+ukmndAzBc43T8faMs5VehnDpvF8p8rnX7g37fA7Y7p7WYC6KJlvndwA7GbC2zP1l1iWhdsiNo5FDcnEw=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-07-28 22:13:43 -0400
+Processing by DashboardController#index as HTML
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mProduct Load (0.1ms)[0m  SELECT  "products".* FROM "products" LIMIT 9 OFFSET 0
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products"[0m
+  Rendered dashboard/index.html.erb within layouts/application (10.7ms)
+  Rendered _flash.html.erb (0.1ms)
+Completed 200 OK in 137ms (Views: 136.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/session/new" for ::1 at 2015-07-28 22:13:45 -0400
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+  Rendered _flash.html.erb (0.1ms)
+Completed 200 OK in 144ms (Views: 143.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2015-07-28 22:13:52 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bDg+Rf21e4aY9nlSyF7ZX6Pt3mbcCiLfdbH4VMLJPzy5N4QD+3fjGXpf0B1lYnesY7hEWOZm4w3rpgnwqB7HmA==", "email"=>"carl@jr.com", "commit"=>"Login"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "carl@jr.com"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1[0m  [["email", "carl@jr.com"]]
+  [1m[35mOrder Load (0.2ms)[0m  SELECT  "orders".* FROM "orders" WHERE "orders"."user_id" = ?  ORDER BY "orders"."id" ASC LIMIT 1  [["user_id", 2342]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "orders" ("user_id", "shipping_id", "billing_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["user_id", 2342], ["shipping_id", 5963], ["billing_id", 5964], ["created_at", "2015-07-29 02:13:52.495385"], ["updated_at", "2015-07-29 02:13:52.495385"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2342]]
+  [1m[36mOrder Load (0.1ms)[0m  [1mSELECT  "orders".* FROM "orders" WHERE "orders"."user_id" = ?  ORDER BY "orders"."id" ASC LIMIT 1[0m  [["user_id", 2342]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "orders".* FROM "orders" WHERE "orders"."user_id" = ?  ORDER BY "orders"."id" ASC LIMIT 1  [["user_id", 2342]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 22ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/" for ::1 at 2015-07-28 22:13:52 -0400
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2342]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT  "products".* FROM "products" LIMIT 9 OFFSET 0[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "products"
+  Rendered dashboard/index.html.erb within layouts/application (9.3ms)
+  Rendered _flash.html.erb (0.1ms)
+Completed 200 OK in 123ms (Views: 118.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/user/edit" for ::1 at 2015-07-28 22:13:55 -0400
+Processing by UsersController#edit as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2342]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mAddress Load (0.2ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."user_id" = ?  [["user_id", 2342]]
+  [1m[36mCity Load (0.5ms)[0m  [1mSELECT "cities".* FROM "cities"[0m
+  [1m[35mState Load (0.3ms)[0m  SELECT "states".* FROM "states"
+  Rendered users/_user_address_form.html.erb (9.4ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cities".* FROM "cities"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "states".* FROM "states"
+  Rendered users/_user_address_form.html.erb (11.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cities".* FROM "cities"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "states".* FROM "states"
+  Rendered users/_user_address_form.html.erb (7.7ms)
+  Rendered users/edit.html.erb within layouts/application (37.8ms)
+  Rendered _flash.html.erb (0.1ms)
+Completed 200 OK in 165ms (Views: 159.6ms | ActiveRecord: 1.1ms)
+
+
+Started DELETE "/user.2342" for ::1 at 2015-07-28 22:13:58 -0400
+Processing by UsersController#destroy as 
+  Parameters: {"authenticity_token"=>"jg82Ol8FVq3s6RoYkWl8jOT17bgb8iOP9L5dR1vtjxNbAIx8WcfOMg5As1c8VdJ/JKB3hiGe4l1qqazjMTp3tw=="}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+NameError - undefined local variable or method `fails' for #<UsersController:0x007fcbf423c630>:
+  app/controllers/users_controller.rb:41:in `destroy'
+  actionpack (4.2.3) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.2.3) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.3) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.3) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:115:in `call'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:553:in `block (2 levels) in compile'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:503:in `call'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:88:in `run_callbacks'
+  actionpack (4.2.3) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.3) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.3) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.3) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.3) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.3) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.3) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.3) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.3) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.3) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.3) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.3) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.3) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.3) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.3) lib/action_dispatch/routing/route_set.rb:76:in `dispatch'
+  actionpack (4.2.3) lib/action_dispatch/routing/route_set.rb:45:in `serve'
+  actionpack (4.2.3) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.3) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.3) lib/action_dispatch/routing/route_set.rb:821:in `call'
+  rack (1.6.4) lib/rack/etag.rb:24:in `call'
+  rack (1.6.4) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.4) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.3) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.3) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:84:in `run_callbacks'
+  actionpack (4.2.3) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.3) lib/rails/engine.rb:518:in `call'
+  railties (4.2.3) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/telwell/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/telwell/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/telwell/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/c16410b681d27be3/variables" for ::1 at 2015-07-28 22:13:58 -0400
+
+
+Started POST "/__better_errors/c16410b681d27be3/eval" for ::1 at 2015-07-28 22:14:16 -0400
+
+
+Started POST "/__better_errors/c16410b681d27be3/eval" for ::1 at 2015-07-28 22:14:17 -0400
+
+
+Started POST "/__better_errors/c16410b681d27be3/eval" for ::1 at 2015-07-28 22:14:19 -0400
+
+
+Started GET "/user/edit" for ::1 at 2015-07-28 22:15:28 -0400
+Processing by UsersController#edit as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2342]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mAddress Load (0.1ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."user_id" = ?  [["user_id", 2342]]
+  [1m[36mCity Load (0.5ms)[0m  [1mSELECT "cities".* FROM "cities"[0m
+  [1m[35mState Load (0.2ms)[0m  SELECT "states".* FROM "states"
+  Rendered users/_user_address_form.html.erb (8.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cities".* FROM "cities"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "states".* FROM "states"
+  Rendered users/_user_address_form.html.erb (7.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cities".* FROM "cities"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "states".* FROM "states"
+  Rendered users/_user_address_form.html.erb (8.1ms)
+  Rendered users/edit.html.erb within layouts/application (31.0ms)
+  Rendered _flash.html.erb (0.1ms)
+Completed 200 OK in 161ms (Views: 155.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/admin/order_contents.css?body=1" for ::1 at 2015-07-28 22:15:28 -0400
+
+
+Started GET "/assets/admin/addresses.css?body=1" for ::1 at 2015-07-28 22:15:29 -0400
+
+
+Started GET "/assets/admin.css?body=1" for ::1 at 2015-07-28 22:15:29 -0400
+
+
+Started GET "/assets/admin/dashboard.css?body=1" for ::1 at 2015-07-28 22:15:29 -0400
+
+
+Started GET "/assets/admin/credit_cards.css?body=1" for ::1 at 2015-07-28 22:15:29 -0400
+
+
+Started GET "/assets/admin/products.css?body=1" for ::1 at 2015-07-28 22:15:29 -0400
+
+
+Started GET "/assets/admin/orders.css?body=1" for ::1 at 2015-07-28 22:15:29 -0400
+
+
+Started GET "/assets/admin/categories.css?body=1" for ::1 at 2015-07-28 22:15:29 -0400
+
+
+Started GET "/assets/admin/users.css?body=1" for ::1 at 2015-07-28 22:15:29 -0400
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for ::1 at 2015-07-28 22:15:29 -0400
+
+
+Started GET "/assets/carts.css?body=1" for ::1 at 2015-07-28 22:15:29 -0400
+
+
+Started GET "/assets/dashboard.css?body=1" for ::1 at 2015-07-28 22:15:29 -0400
+
+
+Started GET "/assets/users.css?body=1" for ::1 at 2015-07-28 22:15:29 -0400
+
+
+Started GET "/assets/application.css?body=1" for ::1 at 2015-07-28 22:15:29 -0400
+
+
+Started GET "/assets/sessions.css?body=1" for ::1 at 2015-07-28 22:15:29 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for ::1 at 2015-07-28 22:15:29 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for ::1 at 2015-07-28 22:15:29 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for ::1 at 2015-07-28 22:15:29 -0400
+
+
+Started GET "/assets/admin.js?body=1" for ::1 at 2015-07-28 22:15:29 -0400
+
+
+Started GET "/assets/admin/addresses.js?body=1" for ::1 at 2015-07-28 22:15:29 -0400
+
+
+Started GET "/assets/admin/credit_cards.js?body=1" for ::1 at 2015-07-28 22:15:29 -0400
+
+
+Started GET "/assets/admin/order_contents.js?body=1" for ::1 at 2015-07-28 22:15:29 -0400
+
+
+Started GET "/assets/admin/orders.js?body=1" for ::1 at 2015-07-28 22:15:29 -0400
+
+
+Started GET "/assets/admin/products.js?body=1" for ::1 at 2015-07-28 22:15:29 -0400
+
+
+Started GET "/assets/admin/users.js?body=1" for ::1 at 2015-07-28 22:15:29 -0400
+
+
+Started GET "/assets/carts.js?body=1" for ::1 at 2015-07-28 22:15:29 -0400
+
+
+Started GET "/assets/dashboard.js?body=1" for ::1 at 2015-07-28 22:15:29 -0400
+
+
+Started GET "/assets/categories.js?body=1" for ::1 at 2015-07-28 22:15:29 -0400
+
+
+Started GET "/assets/sessions.js?body=1" for ::1 at 2015-07-28 22:15:29 -0400
+
+
+Started GET "/assets/users.js?body=1" for ::1 at 2015-07-28 22:15:29 -0400
+
+
+Started GET "/assets/application.js?body=1" for ::1 at 2015-07-28 22:15:29 -0400
+
+
+Started GET "/user/edit" for ::1 at 2015-07-28 22:17:07 -0400
+Processing by UsersController#edit as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2342]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mAddress Load (0.3ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."user_id" = ?  [["user_id", 2342]]
+  [1m[36mCity Load (0.4ms)[0m  [1mSELECT "cities".* FROM "cities"[0m
+  [1m[35mState Load (0.4ms)[0m  SELECT "states".* FROM "states"
+  Rendered users/_user_address_form.html.erb (21.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cities".* FROM "cities"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "states".* FROM "states"
+  Rendered users/_user_address_form.html.erb (8.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "cities".* FROM "cities"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "states".* FROM "states"
+  Rendered users/_user_address_form.html.erb (7.4ms)
+  Rendered users/edit.html.erb within layouts/application (45.0ms)
+  Rendered _flash.html.erb (0.1ms)
+Completed 200 OK in 197ms (Views: 165.1ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/assets/admin.css?body=1" for ::1 at 2015-07-28 22:17:08 -0400
+
+
+Started GET "/assets/admin/categories.css?body=1" for ::1 at 2015-07-28 22:17:08 -0400
+
+
+Started GET "/assets/admin/addresses.css?body=1" for ::1 at 2015-07-28 22:17:08 -0400
+
+
+Started GET "/assets/admin/dashboard.css?body=1" for ::1 at 2015-07-28 22:17:08 -0400
+
+
+Started GET "/assets/admin/credit_cards.css?body=1" for ::1 at 2015-07-28 22:17:08 -0400
+
+
+Started GET "/assets/admin/order_contents.css?body=1" for ::1 at 2015-07-28 22:17:08 -0400
+
+
+Started GET "/assets/admin/orders.css?body=1" for ::1 at 2015-07-28 22:17:08 -0400
+
+
+Started GET "/assets/admin/products.css?body=1" for ::1 at 2015-07-28 22:17:08 -0400
+
+
+Started GET "/assets/admin/users.css?body=1" for ::1 at 2015-07-28 22:17:08 -0400
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for ::1 at 2015-07-28 22:17:08 -0400
+
+
+Started GET "/assets/carts.css?body=1" for ::1 at 2015-07-28 22:17:08 -0400
+
+
+Started GET "/assets/dashboard.css?body=1" for ::1 at 2015-07-28 22:17:08 -0400
+
+
+Started GET "/assets/sessions.css?body=1" for ::1 at 2015-07-28 22:17:08 -0400
+
+
+Started GET "/assets/users.css?body=1" for ::1 at 2015-07-28 22:17:08 -0400
+
+
+Started GET "/assets/application.css?body=1" for ::1 at 2015-07-28 22:17:08 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for ::1 at 2015-07-28 22:17:08 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for ::1 at 2015-07-28 22:17:08 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for ::1 at 2015-07-28 22:17:08 -0400
+
+
+Started GET "/assets/admin.js?body=1" for ::1 at 2015-07-28 22:17:08 -0400
+
+
+Started GET "/assets/admin/addresses.js?body=1" for ::1 at 2015-07-28 22:17:08 -0400
+
+
+Started GET "/assets/admin/credit_cards.js?body=1" for ::1 at 2015-07-28 22:17:08 -0400
+
+
+Started GET "/assets/admin/orders.js?body=1" for ::1 at 2015-07-28 22:17:08 -0400
+
+
+Started GET "/assets/admin/order_contents.js?body=1" for ::1 at 2015-07-28 22:17:08 -0400
+
+
+Started GET "/assets/admin/products.js?body=1" for ::1 at 2015-07-28 22:17:08 -0400
+
+
+Started GET "/assets/admin/users.js?body=1" for ::1 at 2015-07-28 22:17:08 -0400
+
+
+Started GET "/assets/categories.js?body=1" for ::1 at 2015-07-28 22:17:08 -0400
+
+
+Started GET "/assets/carts.js?body=1" for ::1 at 2015-07-28 22:17:08 -0400
+
+
+Started GET "/assets/sessions.js?body=1" for ::1 at 2015-07-28 22:17:08 -0400
+
+
+Started GET "/assets/users.js?body=1" for ::1 at 2015-07-28 22:17:08 -0400
+
+
+Started GET "/assets/application.js?body=1" for ::1 at 2015-07-28 22:17:08 -0400
+
+
+Started GET "/assets/dashboard.js?body=1" for ::1 at 2015-07-28 22:17:08 -0400
+
+
+Started DELETE "/user" for ::1 at 2015-07-28 22:17:11 -0400
+Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"jF1XlqUrZKKnmEOVIcbKEFJICf/zh2qp3wL5ObNetkVZUu3Qo+n8PUUx6tqM+mTjkh2Twcnrq3tBFQid2YlO4Q=="}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2342]]
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.1ms)
+
+NameError - undefined local variable or method `fails' for #<UsersController:0x007fcbf5d30d10>:
+  app/controllers/users_controller.rb:42:in `destroy'
+  actionpack (4.2.3) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.2.3) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.3) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.3) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:115:in `call'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:553:in `block (2 levels) in compile'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:503:in `call'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:88:in `run_callbacks'
+  actionpack (4.2.3) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.3) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.3) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.3) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.3) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.3) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.3) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.3) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.3) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.3) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.3) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.3) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.3) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.3) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.3) lib/action_dispatch/routing/route_set.rb:76:in `dispatch'
+  actionpack (4.2.3) lib/action_dispatch/routing/route_set.rb:45:in `serve'
+  actionpack (4.2.3) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.3) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.3) lib/action_dispatch/routing/route_set.rb:821:in `call'
+  rack (1.6.4) lib/rack/etag.rb:24:in `call'
+  rack (1.6.4) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.4) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.3) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.3) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:84:in `run_callbacks'
+  actionpack (4.2.3) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.3) lib/rails/engine.rb:518:in `call'
+  railties (4.2.3) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/telwell/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/telwell/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/telwell/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/e261d6d5fc1aba94/variables" for ::1 at 2015-07-28 22:17:12 -0400
+
+
+Started POST "/__better_errors/e261d6d5fc1aba94/eval" for ::1 at 2015-07-28 22:17:17 -0400
+
+
+Started GET "/user/edit" for ::1 at 2015-07-28 22:18:49 -0400
+Processing by UsersController#edit as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2342]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36mAddress Load (0.2ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."user_id" = ?[0m  [["user_id", 2342]]
+  [1m[35mCity Load (0.4ms)[0m  SELECT "cities".* FROM "cities"
+  [1m[36mState Load (0.2ms)[0m  [1mSELECT "states".* FROM "states"[0m
+  Rendered users/_user_address_form.html.erb (16.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cities".* FROM "cities"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "states".* FROM "states"[0m
+  Rendered users/_user_address_form.html.erb (8.3ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cities".* FROM "cities"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "states".* FROM "states"[0m
+  Rendered users/_user_address_form.html.erb (7.9ms)
+  Rendered users/edit.html.erb within layouts/application (38.6ms)
+  Rendered _flash.html.erb (0.1ms)
+Completed 200 OK in 184ms (Views: 156.9ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/assets/admin.css?body=1" for ::1 at 2015-07-28 22:18:49 -0400
+
+
+Started GET "/assets/admin/categories.css?body=1" for ::1 at 2015-07-28 22:18:49 -0400
+
+
+Started GET "/assets/admin/order_contents.css?body=1" for ::1 at 2015-07-28 22:18:49 -0400
+
+
+Started GET "/assets/admin/addresses.css?body=1" for ::1 at 2015-07-28 22:18:49 -0400
+
+
+Started GET "/assets/admin/dashboard.css?body=1" for ::1 at 2015-07-28 22:18:49 -0400
+
+
+Started GET "/assets/admin/credit_cards.css?body=1" for ::1 at 2015-07-28 22:18:49 -0400
+
+
+Started GET "/assets/admin/products.css?body=1" for ::1 at 2015-07-28 22:18:49 -0400
+
+
+Started GET "/assets/admin/users.css?body=1" for ::1 at 2015-07-28 22:18:49 -0400
+
+
+Started GET "/assets/admin/orders.css?body=1" for ::1 at 2015-07-28 22:18:49 -0400
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for ::1 at 2015-07-28 22:18:49 -0400
+
+
+Started GET "/assets/carts.css?body=1" for ::1 at 2015-07-28 22:18:49 -0400
+
+
+Started GET "/assets/dashboard.css?body=1" for ::1 at 2015-07-28 22:18:49 -0400
+
+
+Started GET "/assets/sessions.css?body=1" for ::1 at 2015-07-28 22:18:49 -0400
+
+
+Started GET "/assets/users.css?body=1" for ::1 at 2015-07-28 22:18:49 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for ::1 at 2015-07-28 22:18:49 -0400
+
+
+Started GET "/assets/application.css?body=1" for ::1 at 2015-07-28 22:18:49 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for ::1 at 2015-07-28 22:18:50 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for ::1 at 2015-07-28 22:18:50 -0400
+
+
+Started GET "/assets/admin.js?body=1" for ::1 at 2015-07-28 22:18:50 -0400
+
+
+Started GET "/assets/admin/addresses.js?body=1" for ::1 at 2015-07-28 22:18:50 -0400
+
+
+Started GET "/assets/admin/credit_cards.js?body=1" for ::1 at 2015-07-28 22:18:50 -0400
+
+
+Started GET "/assets/admin/orders.js?body=1" for ::1 at 2015-07-28 22:18:50 -0400
+
+
+Started GET "/assets/admin/order_contents.js?body=1" for ::1 at 2015-07-28 22:18:50 -0400
+
+
+Started GET "/assets/admin/products.js?body=1" for ::1 at 2015-07-28 22:18:50 -0400
+
+
+Started GET "/assets/admin/users.js?body=1" for ::1 at 2015-07-28 22:18:50 -0400
+
+
+Started GET "/assets/carts.js?body=1" for ::1 at 2015-07-28 22:18:50 -0400
+
+
+Started GET "/assets/categories.js?body=1" for ::1 at 2015-07-28 22:18:50 -0400
+
+
+Started GET "/assets/dashboard.js?body=1" for ::1 at 2015-07-28 22:18:50 -0400
+
+
+Started GET "/assets/users.js?body=1" for ::1 at 2015-07-28 22:18:50 -0400
+
+
+Started GET "/assets/application.js?body=1" for ::1 at 2015-07-28 22:18:50 -0400
+
+
+Started GET "/assets/sessions.js?body=1" for ::1 at 2015-07-28 22:18:50 -0400
+
+
+Started DELETE "/user" for ::1 at 2015-07-28 22:18:51 -0400
+Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"A5lJZNvC0h8QYt2wcw9e9PZV6HmpesCIolMR+lrFhzDWlvMi3QBKgPLLdP/eM/AHNgByR5MWAVo8ROBeMBJ/lA=="}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2342]]
+  [1m[36m (2.6ms)[0m  [1mbegin transaction[0m
+  [1m[35mAddress Load (0.2ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."user_id" = ?  [["user_id", 2342]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."shipping_id" = ? LIMIT 1[0m  [["shipping_id", 5963]]
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "shipping_id" = NULL WHERE "users"."id" = ?  [["id", 2342]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."billing_id" = ? LIMIT 1[0m  [["billing_id", 5963]]
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "addresses" WHERE "addresses"."id" = ?  [["id", 5963]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."shipping_id" = ? LIMIT 1[0m  [["shipping_id", 5964]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."billing_id" = ? LIMIT 1  [["billing_id", 5964]]
+  [1m[36mSQL (0.8ms)[0m  [1mUPDATE "users" SET "billing_id" = NULL WHERE "users"."id" = ?[0m  [["id", 2342]]
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "addresses" WHERE "addresses"."id" = ?  [["id", 5964]]
+  [1m[36mCreditCard Load (0.2ms)[0m  [1mSELECT  "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."user_id" = ? LIMIT 1[0m  [["user_id", 2342]]
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "users" WHERE "users"."id" = ?  [["id", 2342]]
+  [1m[36mAddress Load (0.1ms)[0m  [1mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT 1[0m  [["id", 5963]]
+  [1m[35mAddress Load (0.0ms)[0m  SELECT  "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT 1  [["id", 5964]]
+  [1m[36mOrder Load (0.2ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE (user_id = 2342) AND (checkout_date IS null)[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "orders" WHERE "orders"."id" = ?  [["id", 3850]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 50ms (ActiveRecord: 7.1ms)
+
+
+Started GET "/" for ::1 at 2015-07-28 22:18:51 -0400
+Processing by DashboardController#index as HTML
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT  "products".* FROM "products" LIMIT 9 OFFSET 0[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "products"
+  Rendered dashboard/index.html.erb within layouts/application (20.8ms)
+  Rendered _flash.html.erb (0.1ms)
+Completed 200 OK in 181ms (Views: 174.8ms | ActiveRecord: 1.0ms)
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE (email = 'carl@jr.com')[0m
+
+
+Started GET "/session/new" for ::1 at 2015-07-28 22:19:38 -0400
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.6ms)
+  Rendered _flash.html.erb (0.1ms)
+Completed 200 OK in 158ms (Views: 157.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2015-07-28 22:19:40 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zLW4uZ6Ueak3JvrHLtL8zqUHBQI8q8ZoNEVQ+ljvYNEZugL/mFbhNtWPU4iD7lI9ZVKfPAbHB7qqUqFeMjiYdQ==", "email"=>"seerth@me.com", "commit"=>"Login"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1[0m  [["email", "seerth@me.com"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "seerth@me.com"]]
+  [1m[36mOrder Load (0.9ms)[0m  [1mSELECT  "orders".* FROM "orders" WHERE "orders"."user_id" = ?  ORDER BY "orders"."id" ASC LIMIT 1[0m  [["user_id", 2340]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "orders" ("user_id", "shipping_id", "billing_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 2340], ["shipping_id", 5956], ["billing_id", 5955], ["created_at", "2015-07-29 02:19:40.096845"], ["updated_at", "2015-07-29 02:19:40.096845"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2340]]
+  [1m[35mOrder Load (0.1ms)[0m  SELECT  "orders".* FROM "orders" WHERE "orders"."user_id" = ?  ORDER BY "orders"."id" ASC LIMIT 1  [["user_id", 2340]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "orders".* FROM "orders" WHERE "orders"."user_id" = ?  ORDER BY "orders"."id" ASC LIMIT 1[0m  [["user_id", 2340]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 19ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/" for ::1 at 2015-07-28 22:19:40 -0400
+Processing by DashboardController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2340]]
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mProduct Load (0.2ms)[0m  SELECT  "products".* FROM "products" LIMIT 9 OFFSET 0
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products"[0m
+  Rendered dashboard/index.html.erb within layouts/application (20.7ms)
+  Rendered _flash.html.erb (0.3ms)
+Completed 200 OK in 174ms (Views: 171.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/user/edit" for ::1 at 2015-07-28 22:19:42 -0400
+Processing by UsersController#edit as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2340]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36mAddress Load (0.1ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."user_id" = ?[0m  [["user_id", 2340]]
+  [1m[35mCity Load (0.5ms)[0m  SELECT "cities".* FROM "cities"
+  [1m[36mState Load (0.4ms)[0m  [1mSELECT "states".* FROM "states"[0m
+  Rendered users/_user_address_form.html.erb (11.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cities".* FROM "cities"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "states".* FROM "states"[0m
+  Rendered users/_user_address_form.html.erb (10.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cities".* FROM "cities"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "states".* FROM "states"[0m
+  Rendered users/_user_address_form.html.erb (8.0ms)
+  Rendered users/edit.html.erb within layouts/application (38.3ms)
+  Rendered _flash.html.erb (0.1ms)
+Completed 200 OK in 161ms (Views: 155.8ms | ActiveRecord: 1.3ms)
+
+
+Started DELETE "/user" for ::1 at 2015-07-28 22:19:45 -0400
+Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"NEVKurESeOijm6msBT5bEMb9hZDJn/1enKBwMjQJ8uvhSvD8t9Dgd0EyAOOoAvXjBqgfrvPzPIwCt4GWXt4KTw=="}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2340]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mAddress Load (0.3ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."user_id" = ?  [["user_id", 2340]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."shipping_id" = ? LIMIT 1[0m  [["shipping_id", 5955]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."billing_id" = ? LIMIT 1  [["billing_id", 5955]]
+  [1m[36mSQL (1.0ms)[0m  [1mUPDATE "users" SET "billing_id" = NULL WHERE "users"."id" = ?[0m  [["id", 2340]]
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "addresses" WHERE "addresses"."id" = ?  [["id", 5955]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."shipping_id" = ? LIMIT 1[0m  [["shipping_id", 5956]]
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "shipping_id" = NULL WHERE "users"."id" = ?  [["id", 2340]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."billing_id" = ? LIMIT 1[0m  [["billing_id", 5956]]
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "addresses" WHERE "addresses"."id" = ?  [["id", 5956]]
+  [1m[36mCreditCard Load (0.0ms)[0m  [1mSELECT  "credit_cards".* FROM "credit_cards" WHERE "credit_cards"."user_id" = ? LIMIT 1[0m  [["user_id", 2340]]
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "users" WHERE "users"."id" = ?  [["id", 2340]]
+  [1m[36mAddress Load (0.0ms)[0m  [1mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT 1[0m  [["id", 5956]]
+  [1m[35mAddress Load (0.0ms)[0m  SELECT  "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT 1  [["id", 5955]]
+  [1m[36mOrder Load (0.1ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE (user_id = 2340) AND (checkout_date IS null)[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "orders" WHERE "orders"."id" = ?  [["id", 3851]]
+  [1m[36m (8.9ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 25ms (ActiveRecord: 11.7ms)
+
+
+Started GET "/" for ::1 at 2015-07-28 22:19:45 -0400
+Processing by DashboardController#index as HTML
+  [1m[35mCategory Load (0.6ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT  "products".* FROM "products" LIMIT 9 OFFSET 0[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "products"
+  Rendered dashboard/index.html.erb within layouts/application (12.5ms)
+  Rendered _flash.html.erb (0.1ms)
+Completed 200 OK in 164ms (Views: 162.3ms | ActiveRecord: 1.2ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2340]]
+  [1m[36mAddress Load (0.3ms)[0m  [1mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT 1[0m  [["id", 5955]]
+  [1m[35mAddress Load (0.2ms)[0m  SELECT  "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT 1  [["id", 5956]]
+
+
+Started GET "/session/new" for ::1 at 2015-07-28 22:21:23 -0400
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+  Rendered _flash.html.erb (0.3ms)
+Completed 200 OK in 124ms (Views: 123.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2015-07-28 22:21:27 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lgp4znG4eIYv2Owz4Y6qzXane7wUCmcLe0LRuHa7CE1DBcKId3rgGc1xRXxMsgQ+tvLhgi5mptnlVSAcHGzw6Q==", "email"=>"me@trevorelwell.com", "commit"=>"Login"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1[0m  [["email", "me@trevorelwell.com"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "me@trevorelwell.com"]]
+  [1m[36mOrder Load (0.5ms)[0m  [1mSELECT  "orders".* FROM "orders" WHERE "orders"."user_id" = ?  ORDER BY "orders"."id" ASC LIMIT 1[0m  [["user_id", 2304]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "orders".* FROM "orders" WHERE "orders"."user_id" = ?  ORDER BY "orders"."id" ASC LIMIT 1  [["user_id", 2304]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2304]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "orders".* FROM "orders" WHERE "orders"."user_id" = ?  ORDER BY "orders"."id" ASC LIMIT 1  [["user_id", 2304]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "orders".* FROM "orders" WHERE "orders"."user_id" = ?  ORDER BY "orders"."id" ASC LIMIT 1[0m  [["user_id", 2304]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 44ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/" for ::1 at 2015-07-28 22:21:28 -0400
+Processing by DashboardController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2304]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mProduct Load (0.7ms)[0m  SELECT  "products".* FROM "products" LIMIT 9 OFFSET 0
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products"[0m
+  Rendered dashboard/index.html.erb within layouts/application (28.0ms)
+  Rendered _flash.html.erb (0.1ms)
+Completed 200 OK in 163ms (Views: 154.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/user/edit" for ::1 at 2015-07-28 22:21:30 -0400
+Processing by UsersController#edit as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2304]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36mAddress Load (0.3ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."user_id" = ?[0m  [["user_id", 2304]]
+  [1m[35mCity Load (0.4ms)[0m  SELECT "cities".* FROM "cities"
+  [1m[36mState Load (0.3ms)[0m  [1mSELECT "states".* FROM "states"[0m
+  Rendered users/_user_address_form.html.erb (21.4ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cities".* FROM "cities"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "states".* FROM "states"[0m
+  Rendered users/_user_address_form.html.erb (8.4ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "cities".* FROM "cities"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "states".* FROM "states"[0m
+  Rendered users/_user_address_form.html.erb (7.5ms)
+  Rendered users/edit.html.erb within layouts/application (47.1ms)
+  Rendered _flash.html.erb (0.1ms)
+Completed 200 OK in 194ms (Views: 178.9ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/" for ::1 at 2015-07-28 22:21:36 -0400
+Processing by DashboardController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2304]]
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mProduct Load (0.2ms)[0m  SELECT  "products".* FROM "products" LIMIT 9 OFFSET 0
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products"[0m
+  Rendered dashboard/index.html.erb within layouts/application (16.9ms)
+  Rendered _flash.html.erb (0.1ms)
+Completed 200 OK in 151ms (Views: 148.6ms | ActiveRecord: 0.9ms)
