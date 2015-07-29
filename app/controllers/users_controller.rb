@@ -9,9 +9,6 @@ class UsersController < ApplicationController
 	def create
 		if User.new(whitelisted_user_params).valid?
 			@user = User.create(whitelisted_user_params)
-			params[:user][:addresses_attributes].each_with_index do |address, i|
-				set_address_ids(@user, address[1], params, i)
-			end
 			flash[:success] = "User created successfully"
 			sign_in(@user)
 			redirect_to root_path

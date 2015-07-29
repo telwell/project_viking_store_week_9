@@ -3,7 +3,7 @@
 	<div class="col-sm-12">
 		<h2>Edit User:</h2>
 		
-		<%= form_for @current_user ||= User.new , :url => user_path do |f| %>
+		<%= form_for @current_user , :url => user_path do |f| %>
 
 			<% @addresses.each_with_index do |address, index| %>
 
