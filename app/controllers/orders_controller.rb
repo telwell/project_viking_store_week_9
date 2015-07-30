@@ -12,6 +12,19 @@ class OrdersController < ApplicationController
 		end
 	end
 
+	def destroy
+		current_user
+		cart = find_cart(@current_user)
+		if cart.destroy
+			flash[:success] = "Cart deleted successfully."
+			create_new_cart(@current_user)
+			redirect_to dashboard_index_path
+		else
+			flash[:error] = "Error deleting cart."
+			render :show
+		end
+	end
+
 
 	def whitelisted_order_params
 		params.require(:order).

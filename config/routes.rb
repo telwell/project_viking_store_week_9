@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
   resource :user, only: [:new, :create, :edit, :update, :destroy]
   resource :cart
-  resource :orders, only: [:update]
+  resource :orders, only: [:update, :destroy]
   resource :checkouts, only: [:update]
   resource :credit_cards, only: [:destroy]
 
