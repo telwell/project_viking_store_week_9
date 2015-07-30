@@ -62840,3 +62840,149 @@ Processing by CartsController#edit as HTML
   Rendered shared/_navbar.html.erb (0.2ms)
   Rendered shared/_footer.html.erb (0.1ms)
 Completed 200 OK in 181ms (Views: 177.1ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/cart/edit" for ::1 at 2015-07-30 17:57:45 -0400
+Processing by CartsController#edit as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2304]]
+  [1m[36mOrder Load (0.2ms)[0m  [1mSELECT  "orders".* FROM "orders" WHERE "orders"."user_id" = ? AND (checkout_date IS null)  ORDER BY "orders"."id" ASC LIMIT 1[0m  [["user_id", 2304]]
+  [1m[35mOrderContents Load (0.1ms)[0m  SELECT "order_contents".* FROM "order_contents" WHERE "order_contents"."order_id" = ?  [["order_id", 3854]]
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 1208]]
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 205]]
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 1209]]
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 203]]
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 1210]]
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 206]]
+  [1m[36m (0.2ms)[0m  [1mSELECT SUM(price * quantity) FROM "orders" INNER JOIN "order_contents" ON "order_contents"."order_id" = "orders"."id" INNER JOIN "products" ON "products"."id" = "order_contents"."product_id" WHERE (orders.id = 3854)[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "products" INNER JOIN "order_contents" ON "products"."id" = "order_contents"."product_id" WHERE "order_contents"."order_id" = ?  [["order_id", 3854]]
+  Rendered carts/edit.html.erb within layouts/application (11.8ms)
+  Rendered shared/_flash.html.erb (0.1ms)
+  Rendered shared/_navbar.html.erb (0.8ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 160ms (Views: 155.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/admin/addresses.css?body=1" for ::1 at 2015-07-30 17:57:45 -0400
+
+
+Started GET "/assets/admin/dashboard.css?body=1" for ::1 at 2015-07-30 17:57:45 -0400
+
+
+Started GET "/assets/admin/credit_cards.css?body=1" for ::1 at 2015-07-30 17:57:45 -0400
+
+
+Started GET "/assets/admin/categories.css?body=1" for ::1 at 2015-07-30 17:57:45 -0400
+
+
+Started GET "/assets/admin/order_contents.css?body=1" for ::1 at 2015-07-30 17:57:45 -0400
+
+
+Started GET "/assets/admin/orders.css?body=1" for ::1 at 2015-07-30 17:57:45 -0400
+
+
+Started GET "/assets/admin/products.css?body=1" for ::1 at 2015-07-30 17:57:45 -0400
+
+
+Started GET "/assets/admin/users.css?body=1" for ::1 at 2015-07-30 17:57:45 -0400
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for ::1 at 2015-07-30 17:57:45 -0400
+
+
+Started GET "/assets/carts.css?body=1" for ::1 at 2015-07-30 17:57:45 -0400
+
+
+Started GET "/assets/admin.css?body=1" for ::1 at 2015-07-30 17:57:45 -0400
+
+
+Started GET "/assets/checkouts.css?body=1" for ::1 at 2015-07-30 17:57:45 -0400
+
+
+Started GET "/assets/credit_cards.css?body=1" for ::1 at 2015-07-30 17:57:45 -0400
+
+
+Started GET "/assets/dashboard.css?body=1" for ::1 at 2015-07-30 17:57:45 -0400
+
+
+Started GET "/assets/orders.css?body=1" for ::1 at 2015-07-30 17:57:45 -0400
+
+
+Started GET "/assets/sessions.css?body=1" for ::1 at 2015-07-30 17:57:45 -0400
+
+
+Started GET "/assets/users.css?body=1" for ::1 at 2015-07-30 17:57:45 -0400
+
+
+Started GET "/assets/application.css?body=1" for ::1 at 2015-07-30 17:57:45 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for ::1 at 2015-07-30 17:57:45 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for ::1 at 2015-07-30 17:57:45 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for ::1 at 2015-07-30 17:57:45 -0400
+
+
+Started GET "/assets/admin/addresses.js?body=1" for ::1 at 2015-07-30 17:57:45 -0400
+
+
+Started GET "/assets/admin/credit_cards.js?body=1" for ::1 at 2015-07-30 17:57:45 -0400
+
+
+Started GET "/assets/admin.js?body=1" for ::1 at 2015-07-30 17:57:45 -0400
+
+
+Started GET "/assets/admin/order_contents.js?body=1" for ::1 at 2015-07-30 17:57:45 -0400
+
+
+Started GET "/assets/admin/orders.js?body=1" for ::1 at 2015-07-30 17:57:45 -0400
+
+
+Started GET "/assets/admin/products.js?body=1" for ::1 at 2015-07-30 17:57:45 -0400
+
+
+Started GET "/assets/admin/users.js?body=1" for ::1 at 2015-07-30 17:57:45 -0400
+
+
+Started GET "/assets/checkouts.js?body=1" for ::1 at 2015-07-30 17:57:45 -0400
+
+
+Started GET "/assets/carts.js?body=1" for ::1 at 2015-07-30 17:57:46 -0400
+
+
+Started GET "/assets/categories.js?body=1" for ::1 at 2015-07-30 17:57:46 -0400
+
+
+Started GET "/assets/credit_cards.js?body=1" for ::1 at 2015-07-30 17:57:46 -0400
+
+
+Started GET "/assets/dashboard.js?body=1" for ::1 at 2015-07-30 17:57:46 -0400
+
+
+Started GET "/assets/orders.js?body=1" for ::1 at 2015-07-30 17:57:46 -0400
+
+
+Started GET "/assets/sessions.js?body=1" for ::1 at 2015-07-30 17:57:46 -0400
+
+
+Started GET "/assets/application.js?body=1" for ::1 at 2015-07-30 17:57:46 -0400
+
+
+Started GET "/assets/users.js?body=1" for ::1 at 2015-07-30 17:57:46 -0400
+
+
+Started GET "/" for ::1 at 2015-07-30 17:57:47 -0400
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2304]]
+  [1m[35mOrder Load (0.1ms)[0m  SELECT  "orders".* FROM "orders" WHERE "orders"."user_id" = ?  ORDER BY "orders"."id" ASC LIMIT 1  [["user_id", 2304]]
+  [1m[36mOrder Load (0.2ms)[0m  [1mSELECT  "orders".* FROM "orders" WHERE "orders"."user_id" = ?  ORDER BY "orders"."checkout_date" ASC LIMIT 1[0m  [["user_id", 2304]]
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT  "products".* FROM "products" LIMIT 9 OFFSET 0[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "products"
+  Rendered dashboard/index.html.erb within layouts/application (7.1ms)
+  Rendered shared/_flash.html.erb (0.1ms)
+  Rendered shared/_navbar.html.erb (0.9ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 182ms (Views: 178.1ms | ActiveRecord: 0.9ms)
