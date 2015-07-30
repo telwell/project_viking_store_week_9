@@ -1,4 +1,5 @@
 class CartsController < ApplicationController
+	before_filter :require_address_ids_carts
 
 	def edit
 		current_user

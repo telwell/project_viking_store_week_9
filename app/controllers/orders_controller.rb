@@ -15,8 +15,10 @@ class OrdersController < ApplicationController
 
 	def whitelisted_order_params
 		params.require(:order).
-			permit(:id,
-	           :order_contents_attributes => [
+			permit( :id,
+							:shipping_id,
+							:billing_id,
+	            :order_contents_attributes => [
 	           		:quantity, 
 	           		:id, 
 	           		:_destroy

@@ -30,8 +30,7 @@ class ApplicationController < ActionController::Base
 	# User login methods below
 	def sign_in(user)
 		session[:current_user_id] = user.id
-		current_user = user
-		create_new_cart(user) unless has_cart?(user)
+		current_user
 	end
 
 
@@ -59,7 +58,12 @@ class ApplicationController < ActionController::Base
 	# Cart methods and logic below
 	
 	# Returns true if the user passed has an order w/o a checkout date
-	def has_cart?(user)
+	
+	# QUESTION: I was having trouble turning this into a class method, 
+	# can we go over how to go about doing that? 
+
+	def has_cart?(user = nil)
+		return false if user.nil?
 		if user.orders.first.nil?
 			false
 		elsif user.orders.order(:checkout_date).first.checkout_date.nil?
@@ -157,6 +161,36 @@ class ApplicationController < ActionController::Base
 			flash[:error] = "You need to be logged in to access this page."
 			redirect_to new_session_path
 		end
+	end
+
+	def require_address_ids_carts
+		current_user
+
+		# This means we're not logged in. Redirect to new_session_path
+		if @current_user.nil?
+			flash[:error] = "Oops! You're not logged in. Please login and try again!"
+			redirect_to new_session_path
+			return
+		end
+		
+		unless @current_user.shipping_id && @current_user.billing_id
+			flash[:error] = "Please set your default shipping and address ID's!"
+			redirect_to edit_user_path
+		end
+	end
+
+	def require_address_ids_dashboard
+		current_user
+		if signed_in_user?
+			if @current_user.shipping_id.nil? || @current_user.billing_id.nil?
+				flash[:error] = "Please set your default shipping and address ID's!"
+				redirect_to edit_user_path
+			end
+		end
+	end
+
+	def require_valid_credit_card
+		true
 	end
 
 end

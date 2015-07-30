@@ -13,14 +13,15 @@ class User < ActiveRecord::Base
 	belongs_to :billing_address, foreign_key: :billing_id, class_name: "Address", dependent: :destroy  
 	
 	accepts_nested_attributes_for :credit_card, 
-																	:reject_if => :all_blank, 
-                                	:allow_destroy => :true
+																:reject_if => :all_blank, 
+                                :allow_destroy => :true
 
 	# Make sure that we delete the cart when a user is deleted but not
 	# any orders that have been completed.
 	after_destroy :cleanup_cart
 
 	validates :first_name, :last_name, :email, :presence => true, length: {in: 1..64}
+	validates_presence_of :credit_card
 
 	def self.total
 
@@ -67,4 +68,5 @@ private
 	def cleanup_cart
 		Order.where("user_id = #{self.id}").destroy_all("checkout_date IS null")
 	end
+
 end

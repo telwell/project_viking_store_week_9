@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resource :cart
   resource :orders, only: [:update]
   resource :checkouts, only: [:update]
+  resource :credit_cards, only: [:destroy]
 
   namespace :admin do
     # Admin dashboard, only using index for now.

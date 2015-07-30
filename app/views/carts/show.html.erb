@@ -18,13 +18,13 @@
 					<!-- Shipping Address -->
 					<div class="form-group col-sm-12">
 						<span class="pull-left"><%= order_fields.label :shipping_id, "Shipping Address:" %></span>
-  					<%= order_fields.collection_select :shipping_id, @cart_order.user.addresses, :id, :street_address, {}, {class: "form-control"} %>
+  					<%= collection_select :default_ids, :shipping_id, @cart_order.user.addresses, :id, :street_address, {}, {class: "form-control"} %>
 					</div>
 
 					<!-- Billing Address -->	
 					<div class="form-group col-sm-12">
 						<span class="pull-left"><%= order_fields.label :billing_id, "Billing Address:" %></span>
-  					<%= order_fields.collection_select :billing_id, @cart_order.user.addresses, :id, :street_address, {}, {class: "form-control"} %>
+  					<%= collection_select :default_ids, :billing_id, @cart_order.user.addresses, :id, :street_address, {}, {class: "form-control"} %>
 					</div>
 
 					<!-- Edit saved addresses goes to User edit page -->
@@ -50,7 +50,9 @@
 						</div>
 						
 						<div class="form-group col-sm-12">
-							<span class="pull-left"><%= link_to "Delete Card", "#" %></span>
+							<% if @current_user.credit_card %>
+								<span class="pull-left"><%= link_to "Delete Card", credit_cards_path, :method => :delete, :data => {:confirm => "Are you sure?" } %></span>
+							<% end %>
 						</div>
 
 					<% end %>
