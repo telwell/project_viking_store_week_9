@@ -1,26 +1,3 @@
-<!--- Navbar -->
-<nav class="row">
-	<div class="col-sm-12">
-		
-		<div class="col-sm-6 nav-viking-logo">
-			<h2>Viking Store</h2>
-		</div>
-		
-		<div class="col-sm-6 nav-right">
-				<div class="link-wrapper">
-					<%= link_to "Your Cart", "#" %><br>
-					<% if signed_in_user?  %>
-						<%= link_to "Sign Out", session_path, method: :delete %> | <%= link_to "Edit Profile", edit_user_path  %>
-					<% else %>
-						<%= link_to "Sign In", new_session_path %>
-					<% end %>
-				</div>
-		</div>
-
-	</div>
-</nav>
-<!-- /Navbar -->
-
 <!-- Hero -->
 <div class="row">
 	<div class="main-hero text-center">
@@ -82,19 +59,3 @@
 	</div>
 </div>
 <!-- /DISPLAY PAGINATION -->
-
-<!-- Footer -->
-<footer class="row">
-	<div class="col-sm-4 col-sm-offset-4 text-center">
-		<h4>CONTACT</h4>
-		<ul>
-			<li>1-800-955-1022</li>
-			<li>contact@vikingstore.com</li>
-		</ul>
-	</div>
-
-	<div class="col-sm-4 footer-right">
-		<%= link_to "Admin Login", admin_path %>
-	</div>
-</footer>
-<!-- /Footer -->

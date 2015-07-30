@@ -11,10 +11,8 @@ Rails.application.routes.draw do
   resources :addresses, only: [:create, :destroy]
   resource :session, only: [:new, :create, :destroy]
   resource :user, only: [:new, :create, :edit, :update, :destroy]
-
-  # QUESTION: Would this be singular? There's only one cart at a time
-  # like there is in :session above? Let's play this out...
-  resource :cart, only: [:index, :new, :create, :update, :destroy, :edit]
+  resource :cart
+  resource :orders, only: [:edit, :update]
 
   namespace :admin do
     # Admin dashboard, only using index for now.

@@ -1,0 +1,22 @@
+<!--- Navbar -->
+<nav class="row">
+	<div class="col-sm-12">
+		
+		<div class="col-sm-6 nav-viking-logo">
+			<h2>Viking Store</h2>
+		</div>
+		
+		<div class="col-sm-6 nav-right">
+				<div class="link-wrapper">
+					<%= link_to "Your Cart", edit_cart_path %><br>
+					<% if signed_in_user?  %>
+						<%= link_to "Sign Out", session_path, method: :delete %> | <%= link_to "Edit Profile", edit_user_path  %>
+					<% else %>
+						<%= link_to "Sign In", new_session_path %>
+					<% end %>
+				</div>
+		</div>
+
+	</div>
+</nav>
+<!-- /Navbar -->

@@ -5,8 +5,13 @@ class Order < ActiveRecord::Base
 	has_many :categories, through: :products
 	has_many :products, through: :order_contents
 	has_many :order_contents, class_name: "OrderContents"
+	accepts_nested_attributes_for :order_contents, 
+																	:reject_if => :all_blank, 
+                                	:allow_destroy => :true
 
 	validates :shipping_id, :billing_id, :presence => true
+
+	after_update :remove_nil_quantities
 
 	# Return the total number of orders since a particular time.
 	# See the view for how to utilize the yield here.
@@ -144,6 +149,20 @@ class Order < ActiveRecord::Base
 		where("orders.checkout_date IS NOT null").
 		where("orders.checkout_date BETWEEN ? AND ?", start_date.beginning_of_day, end_date.end_of_day).
 		limit(1).first
+	end
+
+	def order_total
+		result = Order.where("orders.id = #{self.id}").joins(:products).select("orders.id, order_contents.quantity AS quantity, products.price AS price, quantity * price AS line_value").sum("price * quantity")
+	end
+
+	# Runs through the list of order_contents for this order and 
+	# destroys any with quantity == 0
+	def remove_nil_quantities
+		self.order_contents.each do |order_content|
+			if order_content.quantity <= 0
+				order_content.destroy!
+			end
+		end
 	end
 
 end

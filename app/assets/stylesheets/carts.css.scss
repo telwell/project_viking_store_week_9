@@ -1,3 +1,72 @@
 // Place all the styles related to the carts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+main {
+	margin-bottom: 30px;
+}
+
+.cart-block-wrapper{
+	height: 150px;
+
+	.cart-block-left, .cart-block-right {
+		height: inherit;
+		margin-bottom: 30px;
+	}
+
+	.cart-block-left-content {
+		border: 1px solid #AAA !important;
+		height: inherit;
+
+		p.category-name {
+			color: #AAA;
+			font-style: italic;
+		}
+
+		p.price {
+			padding-top: 25px;
+		}
+	}
+
+	.cart-block-right-content{
+		border: 1px solid #AAA !important;
+		height: inherit;
+
+		.table {
+			
+			thead td {
+				text-decoration: underline;
+			}
+
+			td {
+				border-top: none;
+			}
+		}
+	}
+} // /Cart Block Wrapper 
+
+.order-total {
+	background-color: lemonchiffon;
+	border: 1px solid #AAA !important;
+}
+
+.order-total, .order-submit-buttons {
+	height: 150px;
+}
+
+.order-total {
+	h3 {
+		text-decoration: underline;
+	}
+
+	p {
+		font-size: 2em;
+		font-weight: bold;
+	}
+}
+
+.order-submit-buttons {
+	.btn {
+		margin-top: 20px;
+	}
+}

@@ -147,6 +147,11 @@ class ApplicationController < ActionController::Base
 		end
 	end
 
+	# Get the current current cart for the user
+	def find_cart(user)
+		user.orders.where("checkout_date IS null").first
+	end
+
 	def require_login
 		unless signed_in_user?
 			flash[:error] = "You need to be logged in to access this page."

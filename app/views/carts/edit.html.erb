@@ -1,0 +1,83 @@
+<header class="row">
+	<div class="col-sm-12 text-center">
+		<h2>Shopping Cart Contents</h2>
+	</div>
+</header>
+
+<main class="row">
+	
+	<div class="col-sm-8 col-sm-offset-2">
+			
+		<%= form_for(@cart_order, as: :order, :url => orders_path) do |order_fields| %>
+
+			<% @cart_order.order_contents.each do |item| %>
+
+				<div class="row cart-block-wrapper">
+
+					<div class="col-sm-8 cart-block-left">
+						<div class="col-sm-12 pull-left cart-block-left-content">
+							
+							<div class="col-sm-8">
+								<h3><%= item.product.name %></h3>
+								<p class="category-name"><%= item.product.category.name %></p>	
+							</div>
+							
+							<div class="col-sm-4">
+								<p class="price"><%= number_to_currency(item.product.price) %> / each</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-sm-4 cart-block-right">
+						<div class="col-sm-12 pull-right cart-block-right-content">
+							<table class="table no-border text-center">
+								<thead>
+									<tr>
+										<td>Quantity</td>
+										<td>Total Price</td>
+									</tr>
+								</thead>
+
+								<tbody>
+									<%= order_fields.fields_for :order_contents, item do |order_content_fields| %>
+										<td>
+											<%= order_content_fields.text_field :quantity, class: "form-control" %>
+								      <%= order_content_fields.label :_destroy, "Remove item?" %>
+								      <%= order_content_fields.check_box :_destroy %>
+										</td>
+
+									<% end %>
+									<td><%= number_to_currency(item.product.price * item.quantity) %></td>									
+								</tbody>
+							</table>
+							
+						</div>
+					</div>
+
+				</div> <!-- /row cart-block-wrapper -->
+
+			<% end %>
+			
+			<div class="row cart-block-wrapper">
+				
+				<div class="col-sm-8">
+					<section class="col-sm-12 order-total text-center">
+						<h3>Total</h3>
+						<p><%= number_to_currency(@cart_order.order_total) %></p>
+					</section>
+				</div>
+
+				<div class="col-sm-4">
+					<section class="col-sm-12 order-submit-buttons ">
+						<%= order_fields.submit class: "form-control btn btn-info" %>
+						<%= link_to "Check Out", cart_path, class: "form-control btn btn-primary" %>
+					</section>
+				</div>
+
+			</div><!-- /row -->
+
+		<% end %> <!-- /form_for -->
+
+	</div> <!-- div col-sm-8 wrapper w/ offset -->
+
+</main> <!-- /main row -->
