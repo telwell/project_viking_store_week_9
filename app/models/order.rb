@@ -155,6 +155,7 @@ class Order < ActiveRecord::Base
 		result = Order.where("orders.id = #{self.id}").joins(:products).select("orders.id, order_contents.quantity AS quantity, products.price AS price, quantity * price AS line_value").sum("price * quantity")
 	end
 
+private
 	# Runs through the list of order_contents for this order and 
 	# destroys any with quantity == 0
 	def remove_nil_quantities
