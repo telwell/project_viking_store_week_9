@@ -70,7 +70,10 @@
 				<div class="col-sm-4">
 					<section class="col-sm-12 order-submit-buttons ">
 						<%= order_fields.submit class: "form-control btn btn-info" %>
-						<%= link_to "Check Out", cart_path, class: "form-control btn btn-primary" %>
+						
+						<% unless @cart_order.products.count == 0 %>
+							<%= link_to "Check Out", cart_path, class: "form-control btn btn-primary" %>
+						<% end %>
 					</section>
 				</div>
 

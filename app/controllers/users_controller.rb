@@ -61,7 +61,12 @@ private
              		:zip_code, 
              		:id, 
              		:_destroy
-             ]
+             ],
+             :credit_card_attributes => [
+		           		:card_number,
+		           		:exp_month,
+		           		:exp_year
+		         ]
 			)
 	end
 

@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
   resource :user, only: [:new, :create, :edit, :update, :destroy]
   resource :cart
-  resource :orders, only: [:edit, :update]
+  resource :orders, only: [:update]
+  resource :checkouts, only: [:update]
 
   namespace :admin do
     # Admin dashboard, only using index for now.

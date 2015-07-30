@@ -12,6 +12,10 @@ class User < ActiveRecord::Base
 	belongs_to :shipping_address, foreign_key: :shipping_id, class_name: "Address", dependent: :destroy  
 	belongs_to :billing_address, foreign_key: :billing_id, class_name: "Address", dependent: :destroy  
 	
+	accepts_nested_attributes_for :credit_card, 
+																	:reject_if => :all_blank, 
+                                	:allow_destroy => :true
+
 	# Make sure that we delete the cart when a user is deleted but not
 	# any orders that have been completed.
 	after_destroy :cleanup_cart

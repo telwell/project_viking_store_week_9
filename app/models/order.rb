@@ -9,6 +9,10 @@ class Order < ActiveRecord::Base
 																	:reject_if => :all_blank, 
                                 	:allow_destroy => :true
 
+  accepts_nested_attributes_for :credit_card, 
+																	:reject_if => :all_blank, 
+                                	:allow_destroy => :true
+
 	validates :shipping_id, :billing_id, :presence => true
 
 	after_update :remove_nil_quantities

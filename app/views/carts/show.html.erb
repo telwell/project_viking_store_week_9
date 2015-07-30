@@ -1,0 +1,111 @@
+<header class="row">
+	<div class="col-sm-12 text-center">
+		<h2>Checkout</h2>
+	</div>
+</header>
+
+<main class="row">
+	
+	<div class="col-sm-8 col-sm-offset-2">
+		
+		<%= form_for(@cart_order, as: :order, :url => checkouts_path) do |order_fields|  %>	
+
+			<section class="block-left col-sm-6">
+				
+				<div class="block-content-wrapper col-sm-12">
+					<h3>Shipping + Billing</h3>
+
+					<!-- Shipping Address -->
+					<div class="form-group col-sm-12">
+						<span class="pull-left"><%= order_fields.label :shipping_id, "Shipping Address:" %></span>
+  					<%= order_fields.collection_select :shipping_id, @cart_order.user.addresses, :id, :street_address, {}, {class: "form-control"} %>
+					</div>
+
+					<!-- Billing Address -->	
+					<div class="form-group col-sm-12">
+						<span class="pull-left"><%= order_fields.label :billing_id, "Billing Address:" %></span>
+  					<%= order_fields.collection_select :billing_id, @cart_order.user.addresses, :id, :street_address, {}, {class: "form-control"} %>
+					</div>
+
+					<!-- Edit saved addresses goes to User edit page -->
+					<div class="form-group col-sm-12">
+						<span class="pull-left"><%= link_to "Edit Saved Addresses", edit_user_path %></span>
+					</div>
+
+					<!-- Credit Card Section -->
+					<%= order_fields.fields_for :credit_card, @credit_card do |credit_card_fields| %>
+						<div class="form-group col-sm-12">
+							<span class="pull-left"><%= credit_card_fields.label :card_number  %></span>
+	      			<%= credit_card_fields.text_field :card_number, class: "form-control" %>
+						</div>
+
+						<div class="form-group col-sm-6">
+							<span class="pull-left"><%= credit_card_fields.label :exp_month  %></span>
+	      			<%= credit_card_fields.text_field :exp_month, class: "form-control" %>
+						</div>
+
+						<div class="form-group col-sm-6">
+							<span class="pull-left"><%= credit_card_fields.label :exp_year  %></span>
+	      			<%= credit_card_fields.text_field :exp_year, class: "form-control" %>
+						</div>
+						
+						<div class="form-group col-sm-12">
+							<span class="pull-left"><%= link_to "Delete Card", "#" %></span>
+						</div>
+
+					<% end %>
+				</div>
+
+			</section>
+
+			<section class="block-right col-sm-6 ">
+				
+				<div class="block-content-wrapper col-sm-12">
+					<h3>Review + Complete</h3>
+					<table class="table table-striped">
+						
+						<thead>
+							<tr>
+								<td>Product</td>
+								<td>Quantity</td>
+								<td>Price</td>
+								<td>Total</td>
+							</tr>
+						</thead>
+
+						<tbody>
+							<% @cart_order.order_contents.each do |order_content| %>	
+								<tr>
+									<td><%= order_content.product.name %></td>
+									<td><%= order_content.quantity %></td>
+									<td><%= order_content.product.price %></td>
+									<td><%= number_to_currency(order_content.quantity * order_content.product.price) %></td>
+								</tr>
+							<% end %>
+						</tbody>
+
+					</table>
+
+					<div class="col-sm-4 pull-left">
+						<span class="pull-left"><%= link_to "Edit Order", edit_cart_path %></span><br>
+						<span class="pull-left"><%= link_to "Delete Order", edit_cart_path, :method => :delete, :data => {:confirm => "Are you sure?"} %></span>	
+					</div>
+
+					<div class="col-sm-8 pull-right">
+						<h3>Total: <%= number_to_currency(@cart_order.order_total) %></h3>
+					</div>
+
+				</div>
+
+				<div class="block-content-wrapper col-sm-12">
+					<h3>Place Your Order</h3>
+					<p><%= order_fields.submit "Place Order", class: "btn btn-primary form-control" %></p>
+				</div>
+	
+			</section>
+
+		<% end %> <!-- end form_for -->
+
+	</div> <!-- div col-sm-8 wrapper w/ offset -->
+
+</main> <!-- /main row -->

@@ -62,7 +62,7 @@ class ApplicationController < ActionController::Base
 	def has_cart?(user)
 		if user.orders.first.nil?
 			false
-		elsif user.orders.first.checkout_date.nil?
+		elsif user.orders.order(:checkout_date).first.checkout_date.nil?
 			true
 		else
 		 false
@@ -136,7 +136,7 @@ class ApplicationController < ActionController::Base
 	# Adds one item to the cart of a signed in user
 	def add_product_to_cart(user, product_id)
 		if has_cart?(user)
-			order_id = user.orders.first.id
+			order_id = user.orders.order(:checkout_date).first.id
 			if OrderContents.where("order_id = ?", order_id).where("product_id = ?", product_id).exists?
 				quantity = OrderContents.where("order_id = ?", order_id).where("product_id = ?", product_id).first.quantity
 				OrderContents.where("order_id = ?", order_id).where("product_id = ?", product_id).first.update(:quantity => quantity+1)

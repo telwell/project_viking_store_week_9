@@ -1,6 +1,7 @@
 class DashboardController < ApplicationController
 
 	def index
+		current_user
 		# This is just a ternary on a few lines
 		@products = ( params[:filter_category] ? 
 											Product.where("category_id = ?", params[:filter_category]).paginate(:page => params[:page], :per_page => 9) : 
