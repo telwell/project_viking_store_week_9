@@ -112,7 +112,7 @@ class ApplicationController < ActionController::Base
 
 		# User has session cart AND persisted cart
 		elsif has_session_cart? && has_cart?(user)
-			order_id = user.orders.first.id
+			order_id = user.orders.order(:checkout_date).first.id
 			add_products_to_cart(order_id, session.delete(:cart))
 		end
 	end
