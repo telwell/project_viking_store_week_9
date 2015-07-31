@@ -13,6 +13,7 @@ class Order < ActiveRecord::Base
 																	:reject_if => :all_blank, 
                                 	:allow_destroy => :true
 
+	validates :shipping_id, :billing_id, :presence => true
 
 	after_update :remove_nil_quantities
 
@@ -155,7 +156,7 @@ class Order < ActiveRecord::Base
 	end
 
 	def order_total
-		result = Order.where("orders.id = #{self.id}").joins(:products).select("orders.id, order_contents.quantity AS quantity, products.price AS price, quantity * price AS line_value").sum("price * quantity")
+		products.sum("price * quantity")
 	end
 
 private

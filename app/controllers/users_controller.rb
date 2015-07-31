@@ -2,26 +2,27 @@ class UsersController < ApplicationController
 	include UsersHelper
 
 	def new
-		@user ||= User.new
+		current_user
+		@user = User.new
 		@addresses = [Address.new, Address.new]
 	end
 
 	def create
-		if User.new(whitelisted_user_params).valid?
-			@user = User.create(whitelisted_user_params)
+		@user = User.new(whitelisted_user_params)
+		if @user.save
 			flash[:success] = "User created successfully. Please set default shipping and billing addresses!"
 			sign_in(@user)
 			redirect_to edit_user_path
 		else
-			flash[:error] = "Failed to create user"
+			flash.now[:error] = "Failed to create user"
 			render :new
 		end
 	end
 
 	def edit
 		current_user
+		@current_user.addresses.build
 		@addresses = @current_user.addresses
-		@addresses << Address.new
 	end
 
 	def update

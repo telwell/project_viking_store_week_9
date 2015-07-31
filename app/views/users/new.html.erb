@@ -4,7 +4,6 @@
 		<h4><b>NOTE:</b> You'll be able to set your default shipping/billing address once your user is created</h4>
 
 		<%= form_for user ||= User.new , :url => user_path do |f| %>
-		
 			<% @addresses.each_with_index do |address, index| %>
 			
 				<%= render partial: "user_address_form", locals: { user: user, address: address, index: index, user: user, user_form: f } %>
